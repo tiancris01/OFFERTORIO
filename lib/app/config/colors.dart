@@ -9,4 +9,6 @@ class AppColors {
   static Color error = HexColor("FF4635");
   static Color blueeGreen = HexColor("0099AF");
   static Color pink = HexColor("EF538D");
+  static Color withe = HexColor("FFFFFF");
+  static Color black = HexColor("000000");
 }
