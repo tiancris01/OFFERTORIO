@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:offertorio/app/config/theme.dart';
 
 class AppWidget extends StatelessWidget {
   const AppWidget({Key? key}) : super(key: key);
@@ -8,13 +9,18 @@ class AppWidget extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Offertorio App',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: AppTheme.themeData,
       home: Scaffold(
-        appBar: AppBar(),
-        body: const Center(child: Text('Hello World')),
-      ),
+          appBar: AppBar(
+            title: const Text('Offertorio App'),
+          ),
+          body: const Center(
+            child: Text('Hello World'),
+          ),
+          floatingActionButton: FloatingActionButton(
+            onPressed: () {},
+            child: const Icon(Icons.add),
+          )),
     );
   }
 }
