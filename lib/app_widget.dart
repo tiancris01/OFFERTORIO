@@ -1,26 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:offertorio/app/config/theme.dart';
+import 'package:offertorio/app/routes/app_routes.dart';
 
 class AppWidget extends StatelessWidget {
   const AppWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       title: 'Offertorio App',
       theme: AppTheme.themeData,
-      home: Scaffold(
-          appBar: AppBar(
-            title: const Text('Offertorio App'),
-          ),
-          body: const Center(
-            child: Text('Hello World'),
-          ),
-          floatingActionButton: FloatingActionButton(
-            onPressed: () {},
-            child: const Icon(Icons.add),
-          )),
+      routerConfig: appRouter,
     );
   }
 }

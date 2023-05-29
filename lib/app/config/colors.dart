@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'package:offertorio/app/color/color.dart';
+import 'package:offertorio/app/helpers/hex_color.dart';
 
 class AppColors {
   static Color principal = HexColor("FFD900");
