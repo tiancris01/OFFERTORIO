@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "417924602995",
+    "project_id": "offertorio-b7dd5",
+    "storage_bucket": "offertorio-b7dd5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:417924602995:android:c21cb1cc68d868e3f51e06",
+        "android_client_info": {
+          "package_name": "com.example.offertorio"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "417924602995-ml23gj9rd891lr0abvtn1dlqqmaeb8ht.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAyXqV03h1a978JWRM2OCWBeaH5dk-BLKQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "417924602995-ml23gj9rd891lr0abvtn1dlqqmaeb8ht.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

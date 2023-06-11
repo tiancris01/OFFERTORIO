@@ -11,5 +11,10 @@ final appRouter = GoRouter(
       name: SplashScree.routeName,
       builder: (context, state) => const SplashScree(),
     ),
+    GoRoute(
+      path: '/landing',
+      name: LandingScreen.routeName,
+      builder: (context, state) => const SplashScree(),
+    ),
   ],
 );
