@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:offertorio/app/config/colors.dart';
+import 'package:offertorio/app/theme/app_color_scheme.dart';
+import 'package:offertorio/app/theme/colors.dart';
+import 'package:offertorio/app/theme/font_styles.dart';
 
 class AppTheme {
   static ThemeData get themeData => ThemeData(
         useMaterial3: true,
-        primaryColor: AppColors.principal,
+        primaryColor: AppColors.primary,
+        colorScheme: appColorScheme,
         scaffoldBackgroundColor: AppColors.withe,
         // TextTheme style
-        textTheme: ThemeData().textTheme.apply(
-              fontFamily: 'Roboto',
-            ),
+        fontFamily: 'Palanquin',
+        textTheme: appTextTheme,
         primaryTextTheme: ThemeData().textTheme.apply(
               fontFamily: 'Palanquin',
             ),
@@ -17,53 +19,53 @@ class AppTheme {
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
             padding: const EdgeInsets.symmetric(
-              vertical: 14,
-              horizontal: 10,
+              vertical: 10,
+              horizontal: 20,
             ),
-            backgroundColor: AppColors.principal,
+            backgroundColor: AppColors.primary,
             foregroundColor: AppColors.secondary,
             disabledBackgroundColor: AppColors.tertiary,
             disabledForegroundColor: AppColors.withe,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8.0),
+              borderRadius: BorderRadius.circular(0.0),
             ),
-            textStyle: TextStyle(
+            textStyle: const TextStyle(
               color: AppColors.secondary,
               fontSize: 16,
               // fontWeight: FontWeight.bold,
               fontFamily: 'Palanquin',
             ),
-            minimumSize: Size(180, 40),
+            minimumSize: const Size(180, 40),
           ),
         ),
         inputDecorationTheme: InputDecorationTheme(
           alignLabelWithHint: true,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8),
-            borderSide: BorderSide(
-              color: AppColors.principal,
+            borderSide: const BorderSide(
+              color: AppColors.primary,
             ),
           ),
           suffixIconColor: AppColors.tertiary,
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8),
-            borderSide: BorderSide(
+            borderSide: const BorderSide(
               color: AppColors.blueeGreen,
             ),
           ),
-          labelStyle: TextStyle(
-            color: AppColors.principal,
+          labelStyle: const TextStyle(
+            color: AppColors.primary,
             fontFamily: 'Palanquin',
           ),
           errorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8),
-            borderSide: BorderSide(
+            borderSide: const BorderSide(
               color: AppColors.error,
             ),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8),
-            borderSide: BorderSide(
+            borderSide: const BorderSide(
               color: AppColors.blueeGreen,
               width: 2,
             ),
@@ -74,13 +76,16 @@ class AppTheme {
           ),
           focusedErrorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(24),
-            borderSide: BorderSide(
+            borderSide: const BorderSide(
               color: AppColors.error,
               width: 2,
             ),
           ),
           floatingLabelBehavior: FloatingLabelBehavior.auto,
           isCollapsed: false,
+        ),
+        progressIndicatorTheme: const ProgressIndicatorThemeData(
+          color: AppColors.primary,
         ),
       );
 }
