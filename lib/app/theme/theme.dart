@@ -19,15 +19,15 @@ class AppTheme {
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
             padding: const EdgeInsets.symmetric(
-              vertical: 14,
-              horizontal: 10,
+              vertical: 10,
+              horizontal: 20,
             ),
             backgroundColor: AppColors.primary,
             foregroundColor: AppColors.secondary,
             disabledBackgroundColor: AppColors.tertiary,
             disabledForegroundColor: AppColors.withe,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8.0),
+              borderRadius: BorderRadius.circular(0.0),
             ),
             textStyle: const TextStyle(
               color: AppColors.secondary,

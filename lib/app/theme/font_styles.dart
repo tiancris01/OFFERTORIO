@@ -37,19 +37,19 @@ const appTextTheme = TextTheme(
   labelLarge: TextStyle(
     fontFamily: fontName,
     fontSize: label,
-    fontWeight: FontWeight.w300,
+    fontWeight: FontWeight.w400,
     color: AppColors.secondary,
   ),
   labelMedium: TextStyle(
     fontFamily: fontName,
     fontSize: label,
-    fontWeight: FontWeight.w400,
+    fontWeight: FontWeight.w300,
     color: AppColors.secondary,
   ),
   labelSmall: TextStyle(
     fontFamily: fontName,
     fontSize: label,
-    fontWeight: FontWeight.w100,
+    fontWeight: FontWeight.w200,
     color: AppColors.secondary,
   ),
 );

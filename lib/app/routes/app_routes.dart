@@ -4,7 +4,7 @@ import 'package:offertorio/presentation/screens.dart';
 
 // GoRouter configuration
 final appRouter = GoRouter(
-  initialLocation: '/',
+  initialLocation: '/landing',
   routes: [
     GoRoute(
       path: '/',
@@ -14,7 +14,10 @@ final appRouter = GoRouter(
     GoRoute(
       path: '/landing',
       name: LandingScreen.routeName,
-      builder: (context, state) => const SplashScree(),
+      builder: (context, state) => LandingScreen(
+        onPressed: () {},
+        seeTerms: () {},
+      ),
     ),
   ],
 );
