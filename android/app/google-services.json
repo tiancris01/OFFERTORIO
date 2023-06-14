@@ -14,7 +14,15 @@
       },
       "oauth_client": [
         {
-          "client_id": "417924602995-ml23gj9rd891lr0abvtn1dlqqmaeb8ht.apps.googleusercontent.com",
+          "client_id": "417924602995-pqg1jl9fjukb4ham9ggmaha044h7103i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.offertorio",
+            "certificate_hash": "d058cdcdb73b2351ac30da54da1be5b0a944f414"
+          }
+        },
+        {
+          "client_id": "417924602995-9eu18a0je3jni34m7bqn1d02hgt33lha.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
@@ -27,8 +35,15 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "417924602995-ml23gj9rd891lr0abvtn1dlqqmaeb8ht.apps.googleusercontent.com",
+              "client_id": "417924602995-9eu18a0je3jni34m7bqn1d02hgt33lha.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "417924602995-qb52iklnvnhi9h5b35o4aieeo4fqb12a.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.offertorio"
+              }
             }
           ]
         }
