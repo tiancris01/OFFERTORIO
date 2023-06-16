@@ -39,7 +39,7 @@ dependencies:
   cloud_firestore: ^4.8.0
   freezed_annotation: ^2.2.0
   flutter_riverpod: ^2.3.6
-  flutter_firebase_firestore: ^0.0.1
+  flutter_libphonenumber: ^2.1.4
 
 dev_dependencies:
   flutter_test:
