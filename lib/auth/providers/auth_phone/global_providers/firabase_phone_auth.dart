@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:offertorio/auth/providers/auth_notifiers/firabase_auth_notifier.dart';
-import 'package:offertorio/auth/providers/auth_state/auth_state.dart';
+import 'package:offertorio/auth/providers/auth_phone/auth_notifiers/firabase_auth_notifier.dart';
+import 'package:offertorio/auth/providers/auth_phone/auth_state/auth_state.dart';
 
 final authServiceProvider = Provider<FirebasePhoneAuthService>(
   (ref) => FirebasePhoneAuthService(

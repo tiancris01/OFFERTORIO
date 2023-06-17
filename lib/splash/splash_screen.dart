@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:offertorio/auth/infrastructure/firabase_phone_auth/firabase_phone_auth.dart';
+import 'package:offertorio/auth/providers/auth_phone/global_providers/firabase_phone_auth.dart';
+import 'package:offertorio/auth/providers/global_providers/firabase_phone_auth.dart';
 import 'package:offertorio/auth/presentation/screens.dart';
 import 'package:offertorio/post/presentation/home/home_screen.dart';
 
