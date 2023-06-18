@@ -1,17 +1,15 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:offertorio/app/theme/colors.dart';
+import 'package:go_router/go_router.dart';
+import 'package:offertorio/app_core/theme/colors.dart';
+import 'package:offertorio/app_core/utils/widgets/buttons/general_buttom.dart';
 
-class LandingScreen extends StatelessWidget {
+class SignInLandingScreen extends StatelessWidget {
   static const String routeName = 'landing';
-  final VoidCallback seeTerms;
-  final VoidCallback onPressed;
 
-  const LandingScreen({
+  const SignInLandingScreen({
     Key? key,
-    required this.seeTerms,
-    required this.onPressed,
   }) : super(key: key);
 
   @override
@@ -54,7 +52,7 @@ class LandingScreen extends StatelessWidget {
                       TextSpan(
                         // TODO: horizontal spacer when using text variables
                         text: ' Privacy Policy',
-                        recognizer: TapGestureRecognizer()..onTap = seeTerms,
+                        recognizer: TapGestureRecognizer()..onTap = () {},
                         style: theme.textTheme.labelMedium!.copyWith(
                           color: AppColors.link,
                           fontStyle: FontStyle.italic,
@@ -69,12 +67,12 @@ class LandingScreen extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  child: ElevatedButton(
-                    onPressed: onPressed,
-                    child: Text(
-                      'Agree and continue',
-                      style: theme.textTheme.labelLarge,
-                    ),
+                  width: constraints.maxWidth * 0.95,
+                  child: GeneralButton(
+                    onPressed: () {
+                      context.go('/sign_in_phone');
+                    },
+                    title: 'Agree and continue',
                   ),
                 ),
               ],

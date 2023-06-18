@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:offertorio/app/theme/colors.dart';
+import 'package:offertorio/app_core/theme/colors.dart';
 
 const double displaySize = 40.0;
 const double headLineSize = 26.0;

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:offertorio/app/theme/theme.dart';
-import 'package:offertorio/app/routes/app_routes.dart';
+import 'package:offertorio/app_core/theme/theme.dart';
+import 'package:offertorio/app_core/routes/app_routes.dart';
 
 class AppWidget extends StatelessWidget {
   static const String routeName = 'landing';

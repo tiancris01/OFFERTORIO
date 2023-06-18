@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:offertorio/app/theme/colors.dart';
+import 'package:offertorio/app_core/theme/colors.dart';
 
 final ColorScheme appColorScheme = ColorScheme(
   error: AppColors.error,
