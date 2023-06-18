@@ -1,12 +1,13 @@
 import 'package:go_router/go_router.dart';
 
-import 'package:offertorio/auth/presentation/screens.dart';
-import 'package:offertorio/post/presentation/home/home_screen.dart';
+import 'package:offertorio/auth/presentation/auth_screens.dart';
+import 'package:offertorio/auth/presentation/sign_in_verification/sign_in_verification_screen.dart';
+import 'package:offertorio/post/presentation/post_screens.dart';
 
 // GoRouter configuration
 final appRouter = GoRouter(
   initialLocation: '/',
-  routes: [
+  routes: <GoRoute>[
     GoRoute(
       path: '/',
       name: SplashScree.routeName,
@@ -26,6 +27,18 @@ final appRouter = GoRouter(
       path: '/sign_in_phone',
       name: SignInPhoneScreen.routeName,
       builder: (context, state) => const SignInPhoneScreen(),
+      routes: [
+        GoRoute(
+          path: 'country_selection_screen',
+          name: CountrySelectionScreen.routeName,
+          builder: (context, state) => const CountrySelectionScreen(),
+        ),
+        GoRoute(
+          path: 'sign_in_verification_screen',
+          name: SignInVerificationScreen.routeName,
+          builder: (context, state) => const SignInVerificationScreen(),
+        ),
+      ],
     ),
   ],
 );

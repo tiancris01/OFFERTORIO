@@ -15,74 +15,111 @@ class AppTheme {
         primaryTextTheme: ThemeData().textTheme.apply(
               fontFamily: 'Palanquin',
             ),
+        buttonTheme: const ButtonThemeData(
+          splashColor: Colors.transparent,
+        ),
+
         // ElevatedButton style
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
             padding: const EdgeInsets.symmetric(
-              vertical: 10,
+              vertical: 15,
               horizontal: 20,
             ),
             backgroundColor: AppColors.primary,
-            foregroundColor: AppColors.secondary,
+            foregroundColor: AppColors.withe,
             disabledBackgroundColor: AppColors.tertiary,
             disabledForegroundColor: AppColors.withe,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(0.0),
             ),
             textStyle: const TextStyle(
-              color: AppColors.secondary,
               fontSize: 16,
               // fontWeight: FontWeight.bold,
               fontFamily: 'Palanquin',
             ),
-            minimumSize: const Size(double.infinity, 40),
+            minimumSize: const Size(double.infinity, 45),
           ),
         ),
+
+        // OutlinedButton style
+        outlinedButtonTheme: OutlinedButtonThemeData(
+          style: OutlinedButton.styleFrom(
+            splashFactory: NoSplash.splashFactory,
+            padding: const EdgeInsets.symmetric(
+              vertical: 10,
+              horizontal: 20,
+            ),
+            backgroundColor: AppColors.withe,
+            foregroundColor: AppColors.secondary,
+            textStyle: ThemeData().textTheme.titleLarge!.copyWith(
+                  color: AppColors.secondary,
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(0.0),
+            ),
+            minimumSize: const Size(double.infinity, 50),
+          ),
+        ),
+
+        // imputDecorationTheme textfield style
         inputDecorationTheme: InputDecorationTheme(
           alignLabelWithHint: true,
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(8),
-            borderSide: const BorderSide(
-              color: AppColors.primary,
-            ),
+          border: const OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(0.0)),
+            borderSide: BorderSide(color: AppColors.tertiary),
           ),
-          suffixIconColor: AppColors.tertiary,
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(8),
-            borderSide: const BorderSide(
-              color: AppColors.blueeGreen,
+          enabledBorder: const OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(0.0)),
+            borderSide: BorderSide(
+              color: AppColors.tertiary,
             ),
           ),
           labelStyle: const TextStyle(
-            color: AppColors.primary,
+            color: AppColors.secondary,
             fontFamily: 'Palanquin',
           ),
-          errorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(8),
-            borderSide: const BorderSide(
+          errorBorder: const OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(0.0)),
+            borderSide: BorderSide(
               color: AppColors.error,
             ),
           ),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(8),
-            borderSide: const BorderSide(
+          focusedBorder: const OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(0.0)),
+            borderSide: BorderSide(
               color: AppColors.blueeGreen,
               width: 2,
             ),
           ),
-          contentPadding: const EdgeInsets.symmetric(
-            vertical: 20,
-            horizontal: 24,
+          disabledBorder: const OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(0.0)),
+            borderSide: BorderSide(
+              color: AppColors.tertiary,
+            ),
           ),
-          focusedErrorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(24),
-            borderSide: const BorderSide(
+          contentPadding: const EdgeInsets.symmetric(
+            vertical: 10,
+            horizontal: 20,
+          ),
+          focusedErrorBorder: const OutlineInputBorder(
+            borderSide: BorderSide(
               color: AppColors.error,
               width: 2,
             ),
           ),
           floatingLabelBehavior: FloatingLabelBehavior.auto,
           isCollapsed: false,
+          constraints: const BoxConstraints(
+            maxHeight: 50,
+            minWidth: double.infinity,
+          ),
+          hintStyle: ThemeData().textTheme.labelLarge!.copyWith(
+                color: AppColors.tertiary,
+                fontSize: 16,
+              ),
         ),
         progressIndicatorTheme: const ProgressIndicatorThemeData(
           color: AppColors.primary,

@@ -2,10 +2,10 @@ import 'dart:ui' as ui;
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_libphonenumber/flutter_libphonenumber.dart';
-import 'package:offertorio/auth/providers/auth_phone/auth_state/auth_state.dart';
+import 'package:offertorio/auth/providers/providers.dart';
 
-class FirebasePhoneAuthService extends StateNotifier<AuthState> {
-  FirebasePhoneAuthService({required FirebaseAuth firebasePhoneAuth})
+class FirebasePhoneAuthNotifier extends StateNotifier<AuthState> {
+  FirebasePhoneAuthNotifier({required FirebaseAuth firebasePhoneAuth})
       : _firebasePhoneAuth = firebasePhoneAuth,
         super(const AuthState.initializing()) {
     _loadCountries();
@@ -43,7 +43,7 @@ class FirebasePhoneAuthService extends StateNotifier<AuthState> {
           countries.where((item) => item.countryCode == langCode);
 
       if (filteredCountries.isEmpty) {
-        filteredCountries = countries.where((item) => item.countryCode == 'US');
+        filteredCountries = countries.where((item) => item.countryCode == 'CO');
       }
       if (filteredCountries.isEmpty) {
         throw Exception('Unable to find a default country!');
@@ -76,6 +76,7 @@ class FirebasePhoneAuthService extends StateNotifier<AuthState> {
         await _firebasePhoneAuth.signInWithCredential(credential);
       },
       verificationFailed: (FirebaseException e) {
+        print(e.message);
         throw e;
       },
       codeSent: (String verificationId, int? resendToken) {

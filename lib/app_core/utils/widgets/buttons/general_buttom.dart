@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class GeneralButton extends StatelessWidget {
   final String title;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
   const GeneralButton({
     Key? key,
     required this.title,

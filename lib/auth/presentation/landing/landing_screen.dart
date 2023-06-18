@@ -70,7 +70,7 @@ class SignInLandingScreen extends StatelessWidget {
                   width: constraints.maxWidth * 0.95,
                   child: GeneralButton(
                     onPressed: () {
-                      context.go('/login');
+                      context.go('/sign_in_phone');
                     },
                     title: 'Agree and continue',
                   ),
