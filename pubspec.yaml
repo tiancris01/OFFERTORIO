@@ -41,6 +41,7 @@ dependencies:
   flutter_riverpod: ^2.3.6
   flutter_libphonenumber: ^2.1.4
   pinput: ^2.2.31
+  reactive_forms: ^15.0.0
 
 dev_dependencies:
   flutter_test:
