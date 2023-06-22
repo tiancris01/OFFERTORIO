@@ -3,7 +3,7 @@ import 'package:flutter_libphonenumber/flutter_libphonenumber.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:offertorio/app_core/utils/widgets/buttons/general_buttom.dart';
-import 'package:offertorio/app_core/utils/widgets/custom_space.dart';
+import 'package:offertorio/app_core/utils/widgets/miscellenius/custom_space.dart';
 import 'package:offertorio/app_core/utils/widgets/error/error_text.dart';
 import 'package:offertorio/auth/presentation/auth_screens.dart';
 import 'package:offertorio/auth/providers/fiebase_auth_phone/global_providers/firabase_phone_auth.dart';

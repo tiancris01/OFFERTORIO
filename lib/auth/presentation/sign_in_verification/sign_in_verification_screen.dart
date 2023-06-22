@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:offertorio/app_core/utils/widgets/error/error_text.dart';
-import 'package:offertorio/auth/presentation/auth_screens.dart';
 import 'package:offertorio/auth/providers/providers.dart';
 import 'package:pinput/pinput.dart';
 
