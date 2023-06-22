@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:offertorio/app_core/theme/colors.dart';
+import 'package:offertorio/app_core/utils/assets_url/assets_url.dart';
 import 'package:offertorio/app_core/utils/widgets/buttons/general_buttom.dart';
 
 class SignInLandingScreen extends StatelessWidget {
@@ -37,7 +38,7 @@ class SignInLandingScreen extends StatelessWidget {
                   style: theme.textTheme.labelMedium,
                 ),
                 SvgPicture.asset(
-                  'assets/logo/logo.svg',
+                  AssetsUrl.logo_vg,
                   color: AppColors.primary,
                   height: 200,
                 ),
