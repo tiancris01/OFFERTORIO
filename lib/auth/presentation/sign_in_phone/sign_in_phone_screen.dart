@@ -4,13 +4,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:offertorio/app_core/utils/widgets/buttons/general_buttom.dart';
 import 'package:offertorio/app_core/utils/widgets/miscellenius/custom_space.dart';
-import 'package:offertorio/app_core/utils/widgets/error/error_text.dart';
+import 'package:offertorio/app_core/utils/widgets/reactive_textfield/custom_reactivetextfield.dart';
 import 'package:offertorio/auth/presentation/auth_screens.dart';
-import 'package:offertorio/auth/providers/fiebase_auth_phone/global_providers/firabase_phone_auth.dart';
-import 'package:offertorio/auth/providers/fiebase_auth_phone/sign_in_state/sign_in_state.dart';
+import 'package:offertorio/auth/providers/providers.dart';
+import 'package:reactive_forms/reactive_forms.dart';
 
 class SignInPhoneScreen extends ConsumerWidget {
   static const String routeName = 'sign_in_phone';
+
   Future<void> _openVerification(BuildContext context) async {
     await context.pushNamed(SignInVerificationScreen.routeName);
   }
@@ -46,15 +47,11 @@ class SignInPhoneScreen extends ConsumerWidget {
         loading: () => true,
         orElse: () => false,
       ),
-      errorText: state.maybeWhen(
-        error: (error) => error,
-        orElse: () => null,
-      ),
     );
   }
 }
 
-class SignInPhoneScreenBuilder extends StatefulWidget {
+class SignInPhoneScreenBuilder extends ConsumerStatefulWidget {
   const SignInPhoneScreenBuilder({
     Key? key,
     required this.formatter,
@@ -62,7 +59,6 @@ class SignInPhoneScreenBuilder extends StatefulWidget {
     required this.phonePlaceholder,
     required this.canSubmit,
     required this.isLoading,
-    required this.errorText,
     required this.onSubmit,
   }) : super(key: key);
 
@@ -71,15 +67,15 @@ class SignInPhoneScreenBuilder extends StatefulWidget {
   final String phonePlaceholder;
   final bool canSubmit;
   final bool isLoading;
-  final String? errorText;
   final VoidCallback onSubmit;
 
   @override
-  State<SignInPhoneScreenBuilder> createState() =>
+  ConsumerState<SignInPhoneScreenBuilder> createState() =>
       _SignInPhoneScreenBuilderState();
 }
 
-class _SignInPhoneScreenBuilderState extends State<SignInPhoneScreenBuilder> {
+class _SignInPhoneScreenBuilderState
+    extends ConsumerState<SignInPhoneScreenBuilder> {
   final controller = TextEditingController();
   final focusNode = FocusNode();
 
@@ -93,67 +89,77 @@ class _SignInPhoneScreenBuilderState extends State<SignInPhoneScreenBuilder> {
 
   @override
   Widget build(BuildContext context) {
+    final form = ref.watch(formPhoneProvider);
     ThemeData theme = Theme.of(context);
     return SafeArea(
       child: Scaffold(
           body: SizedBox.expand(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 50),
-          child: Column(children: [
-            // const SizedBox(height: 20),
-            Text(
-              "We need to verify your number ",
-              style: theme.textTheme.titleLarge,
-              textAlign: TextAlign.center,
-            ),
-            CustomSpace.vertical(height: 30),
-            Text(
-              'Enviaremos un mensaje  SMS para verificar tu numerode telefono. Ingresa tu pais y el numero de telefono',
-              style: theme.textTheme.bodyMedium,
-              textAlign: TextAlign.center,
-            ),
-            CustomSpace.vertical(height: 30),
-            Row(
+          child: ReactiveForm(
+            formGroup: form,
+            child: Column(
               children: [
-                SizedBox(
-                  width: 80,
-                  child: OutlinedButton(
-                    child: Text(
-                      widget.phoneCode,
-                    ),
-                    onPressed: () {
-                      context.pushNamed(CountrySelectionScreen.routeName);
-                    },
-                  ),
+                // const SizedBox(height: 20),
+                Text(
+                  "We need to verify your number ",
+                  style: theme.textTheme.titleLarge,
+                  textAlign: TextAlign.center,
                 ),
-                CustomSpace.horizontal(width: 18),
-                Flexible(
-                  child: TextFormField(
-                    focusNode: focusNode,
-                    keyboardType: TextInputType.phone,
-                    controller: controller,
-                    decoration: InputDecoration(
-                      hintText: widget.phonePlaceholder,
+                CustomSpace.vertical(30),
+                Text(
+                  'Enviaremos un mensaje  SMS para verificar tu numerode telefono. Ingresa tu pais y el numero de telefono',
+                  style: theme.textTheme.bodyMedium,
+                  textAlign: TextAlign.center,
+                ),
+                CustomSpace.vertical(30),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      width: 80,
+                      child: OutlinedButton(
+                        child: Text(
+                          widget.phoneCode,
+                        ),
+                        onPressed: () {
+                          context.pushNamed(CountrySelectionScreen.routeName);
+                        },
+                      ),
                     ),
-                    inputFormatters: [widget.formatter],
+                    CustomSpace.horizontal(18),
+                    Flexible(
+                      child: Column(
+                        children: [
+                          CustomRXTextFields(
+                            formControlName: 'phone',
+                            focusNode: focusNode,
+                            keyboardType: TextInputType.phone,
+                            hintTxt: widget.phonePlaceholder,
+                            inputFormatters: [widget.formatter],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+                const Spacer(),
+                SizedBox(
+                  width: double.infinity,
+                  child: ReactiveFormConsumer(
+                    builder: (context, form, child) {
+                      return GeneralButton(
+                        title: "Continue",
+                        onPressed: form.valid && widget.canSubmit
+                            ? widget.onSubmit
+                            : null,
+                      );
+                    },
                   ),
                 ),
               ],
             ),
-            const Spacer(),
-            SizedBox(
-              width: double.infinity,
-              child: GeneralButton(
-                title: "Continue",
-                onPressed: widget.canSubmit ? widget.onSubmit : null,
-              ),
-            ),
-            if (widget.errorText != null)
-              ErrorText(
-                message: widget.errorText!,
-              ),
-            const SizedBox(height: 30),
-          ]),
+          ),
         ),
       )),
     );

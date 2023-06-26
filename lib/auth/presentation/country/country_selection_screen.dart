@@ -16,9 +16,9 @@ class CountrySelectionScreen extends StatelessWidget {
       ),
       body: Consumer(
         builder: (context, ref, _) {
-          final authService = ref.read(authNotifierProvider);
+          final authFirebase = ref.read(authFirebaseProvider);
           return ListView.separated(
-            itemCount: authService.countries.length,
+            itemCount: authFirebase.countries.length,
             separatorBuilder: (_, __) => Padding(
               padding: const EdgeInsets.only(left: 15.0),
               child: Divider(
@@ -27,7 +27,7 @@ class CountrySelectionScreen extends StatelessWidget {
               ),
             ),
             itemBuilder: (BuildContext context, int index) {
-              final country = authService.countries[index];
+              final country = authFirebase.countries[index];
               return _countryListTile(context, ref, country);
             },
           );
@@ -54,7 +54,7 @@ class CountrySelectionScreen extends StatelessWidget {
         style: const TextStyle(fontSize: 16.0, color: Colors.grey),
       ),
       onTap: () {
-        final authService = ref.read(authNotifierProvider);
+        final authService = ref.read(authFirebaseProvider);
         authService.setCountry(country);
         Navigator.pop(context);
       },

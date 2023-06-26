@@ -51,7 +51,7 @@ class SignInLandingScreen extends StatelessWidget {
                     ),
                     children: <TextSpan>[
                       TextSpan(
-                        // TODO: horizontal spacer when using text variables
+                        // TODO: horizontal spacer when using text variables.. crear un espacio basico para manejar el espacio entre palabras
                         text: ' Privacy Policy',
                         recognizer: TapGestureRecognizer()..onTap = () {},
                         style: theme.textTheme.labelMedium!.copyWith(

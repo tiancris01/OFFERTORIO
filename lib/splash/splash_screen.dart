@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:offertorio/auth/presentation/auth_screens.dart';
 import 'package:offertorio/auth/providers/providers.dart';
-import 'package:offertorio/post/presentation/home/home_screen.dart';
+import 'package:offertorio/profile/presentation/onboarding/onboarding_screen.dart';
 
 class SplashScree extends ConsumerStatefulWidget {
   static const String routeName = 'splash';
@@ -16,11 +16,12 @@ class SplashScree extends ConsumerStatefulWidget {
 class _SplashScreeState extends ConsumerState<SplashScree> {
   @override
   Widget build(BuildContext context) {
-    final firebasePhoneAuthStateChanges = ref.watch(authStateChangesProvider);
+    final firebasePhoneAuthStateChanges =
+        ref.watch(authUserStateChangesProvider);
     return firebasePhoneAuthStateChanges.when(
       data: (user) {
         if (user != null) {
-          return const HomeScreen();
+          return const ProfileOnBoardingScreen();
         } else {
           return const SignInLandingScreen();
         }

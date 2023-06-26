@@ -11,8 +11,6 @@ class SingInNotifier extends StateNotifier<SignInState> {
 
   LibPhonenumberTextFormatter get phoneNumberFormatter {
     return LibPhonenumberTextFormatter(
-      phoneNumberType: PhoneNumberType.mobile,
-      phoneNumberFormat: PhoneNumberFormat.international,
       country: _firebasePhoneAuthNotifier.selectedCountry,
       onFormatFinished: (inputText) async => _parsePhoneNumber(inputText),
     );

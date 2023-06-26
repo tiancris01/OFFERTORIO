@@ -76,8 +76,7 @@ class FirebasePhoneAuthNotifier extends StateNotifier<AuthState> {
         await _firebasePhoneAuth.signInWithCredential(credential);
       },
       verificationFailed: (FirebaseException e) {
-        print(e.message);
-        throw e;
+        if (e.code == 'invalid-phone-number') {}
       },
       codeSent: (String verificationId, int? resendToken) {
         _verificationId = verificationId;
@@ -96,8 +95,9 @@ class FirebasePhoneAuthNotifier extends StateNotifier<AuthState> {
       verificationId: _verificationId,
       smsCode: smsCode,
     );
-    final user = await _firebasePhoneAuth.signInWithCredential(credential);
-    if (user.user != null) {
+    final userCredentials =
+        await _firebasePhoneAuth.signInWithCredential(credential);
+    if (userCredentials.user != null) {
       completion();
     }
   }
