@@ -1,6 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 
-import 'package:offertorio/auth/providers/providers.dart';
+import 'package:offertorio/auth/providers/auth_providers.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
 /// Validator that validates if control's value is a name (it cannot contain numbers or simbols) value.

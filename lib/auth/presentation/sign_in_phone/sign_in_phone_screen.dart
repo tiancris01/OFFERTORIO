@@ -6,7 +6,7 @@ import 'package:offertorio/app_core/utils/widgets/buttons/general_buttom.dart';
 import 'package:offertorio/app_core/utils/widgets/miscellenius/custom_space.dart';
 import 'package:offertorio/app_core/utils/widgets/reactive_textfield/custom_reactivetextfield.dart';
 import 'package:offertorio/auth/presentation/auth_screens.dart';
-import 'package:offertorio/auth/providers/providers.dart';
+import 'package:offertorio/auth/providers/auth_providers.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
 class SignInPhoneScreen extends ConsumerWidget {

@@ -1,6 +1,6 @@
 import 'package:flutter_libphonenumber/flutter_libphonenumber.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:offertorio/auth/providers/providers.dart';
+import 'package:offertorio/auth/providers/auth_providers.dart';
 
 class SingInNotifier extends StateNotifier<SignInState> {
   SingInNotifier({required FirebasePhoneAuthNotifier firebasePhoneAuthNotifier})
