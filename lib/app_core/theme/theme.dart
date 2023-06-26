@@ -60,12 +60,13 @@ class AppTheme {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(0.0),
             ),
-            minimumSize: const Size(double.infinity, 50),
+            minimumSize: const Size(double.infinity, 48),
           ),
         ),
 
         // imputDecorationTheme textfield style
         inputDecorationTheme: InputDecorationTheme(
+          focusColor: AppColors.blueeGreen,
           alignLabelWithHint: true,
           border: const OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(0.0)),
@@ -91,7 +92,6 @@ class AppTheme {
             borderRadius: BorderRadius.all(Radius.circular(0.0)),
             borderSide: BorderSide(
               color: AppColors.blueeGreen,
-              width: 2,
             ),
           ),
           disabledBorder: const OutlineInputBorder(
@@ -105,15 +105,16 @@ class AppTheme {
             horizontal: 20,
           ),
           focusedErrorBorder: const OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(0.0)),
             borderSide: BorderSide(
               color: AppColors.error,
-              width: 2,
             ),
           ),
           floatingLabelBehavior: FloatingLabelBehavior.auto,
           isCollapsed: false,
           constraints: const BoxConstraints(
             maxHeight: 50,
+            minHeight: 50,
             minWidth: double.infinity,
           ),
           hintStyle: ThemeData().textTheme.labelLarge!.copyWith(

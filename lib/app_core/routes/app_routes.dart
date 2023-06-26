@@ -1,8 +1,7 @@
 import 'package:go_router/go_router.dart';
-
 import 'package:offertorio/auth/presentation/auth_screens.dart';
-import 'package:offertorio/auth/presentation/sign_in_verification/sign_in_verification_screen.dart';
 import 'package:offertorio/post/presentation/post_screens.dart';
+import 'package:offertorio/profile/presentation/onboarding/onboarding_screen.dart';
 
 // GoRouter configuration
 final appRouter = GoRouter(
@@ -22,6 +21,11 @@ final appRouter = GoRouter(
       path: '/home',
       name: HomeScreen.routeName,
       builder: (context, state) => const HomeScreen(),
+    ),
+    GoRoute(
+      path: '/profile_on_boarding',
+      name: ProfileOnBoardingScreen.routeName,
+      builder: (context, state) => const ProfileOnBoardingScreen(),
     ),
     GoRoute(
       path: '/sign_in_phone',
