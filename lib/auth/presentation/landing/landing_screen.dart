@@ -38,7 +38,7 @@ class SignInLandingScreen extends StatelessWidget {
                   style: theme.textTheme.labelMedium,
                 ),
                 SvgPicture.asset(
-                  AssetsUrl.logo_vg,
+                  AssetsUrl.logo_svg,
                   color: AppColors.primary,
                   height: 200,
                 ),

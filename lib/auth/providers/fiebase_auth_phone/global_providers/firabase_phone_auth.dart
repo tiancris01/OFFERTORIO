@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_libphonenumber/flutter_libphonenumber.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:offertorio/auth/providers/providers.dart';
+import 'package:offertorio/auth/providers/auth_providers.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
 final authFirebaseProvider = Provider<FirebasePhoneAuthNotifier>(

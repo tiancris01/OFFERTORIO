@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:offertorio/auth/providers/providers.dart';
+import 'package:offertorio/auth/providers/auth_providers.dart';
 
 const delayBeforeUserCanRequestNewCode = 60;
 

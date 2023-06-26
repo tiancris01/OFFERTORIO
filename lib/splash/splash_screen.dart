@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:offertorio/auth/presentation/auth_screens.dart';
-import 'package:offertorio/auth/providers/providers.dart';
+import 'package:offertorio/auth/providers/auth_providers.dart';
 import 'package:offertorio/profile/presentation/onboarding/onboarding_screen.dart';
 
 class SplashScree extends ConsumerStatefulWidget {

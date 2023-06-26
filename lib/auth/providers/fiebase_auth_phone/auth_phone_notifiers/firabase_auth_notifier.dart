@@ -2,7 +2,7 @@ import 'dart:ui' as ui;
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_libphonenumber/flutter_libphonenumber.dart';
-import 'package:offertorio/auth/providers/providers.dart';
+import 'package:offertorio/auth/providers/auth_providers.dart';
 
 class FirebasePhoneAuthNotifier extends StateNotifier<AuthState> {
   FirebasePhoneAuthNotifier({required FirebaseAuth firebasePhoneAuth})
