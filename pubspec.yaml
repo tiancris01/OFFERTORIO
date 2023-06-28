@@ -42,6 +42,7 @@ dependencies:
   flutter_libphonenumber: ^2.1.4
   pinput: ^2.2.31
   reactive_forms: ^15.0.0
+  image_picker: ^1.0.0
 
 dev_dependencies:
   flutter_test:

@@ -1,7 +1,7 @@
 import 'package:go_router/go_router.dart';
 import 'package:offertorio/auth/presentation/auth_screens.dart';
 import 'package:offertorio/post/presentation/post_screens.dart';
-import 'package:offertorio/profile/presentation/onboarding/onboarding_screen.dart';
+import 'package:offertorio/profile/presentation/profile_onboarding/profile_onboarding_screen.dart';
 
 // GoRouter configuration
 final appRouter = GoRouter(

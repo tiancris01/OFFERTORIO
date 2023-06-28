@@ -42,9 +42,14 @@ class ProfileOnBoardingScreen extends ConsumerWidget {
                 child: Stack(
                   alignment: Alignment.center,
                   children: [
-                    SvgPicture.asset(
-                      AssetsUrl.avatar_svg,
-                      height: 100,
+                    InkWell(
+                      onTap: () {
+                        // TODO: Add image picker from gallery
+                      },
+                      child: SvgPicture.asset(
+                        AssetsUrl.avatar_svg,
+                        height: 100,
+                      ),
                     ),
                     Positioned(
                       bottom: 0,
@@ -58,7 +63,9 @@ class ProfileOnBoardingScreen extends ConsumerWidget {
                         ),
                         child: InkWell(
                           splashColor: Colors.transparent,
-                          onTap: () {},
+                          onTap: () {
+                            // TODO: Add image picker from camera
+                          },
                           child: const Icon(
                             Icons.camera_alt_rounded,
                             size: 32,
