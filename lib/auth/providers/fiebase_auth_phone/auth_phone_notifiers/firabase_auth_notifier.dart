@@ -22,6 +22,8 @@ class FirebasePhoneAuthNotifier extends StateNotifier<AuthState> {
 
   Stream<User?> authStateChanges() => _firebasePhoneAuth.authStateChanges();
 
+  String getCurrentUserUid() => _firebasePhoneAuth.currentUser!.uid;
+
   CountryWithPhoneCode get selectedCountry => _selectedCountry;
   String get phoneCode => _selectedCountry.phoneCode;
   String get formattedPhoneNumber => _phoneNumber['international'];

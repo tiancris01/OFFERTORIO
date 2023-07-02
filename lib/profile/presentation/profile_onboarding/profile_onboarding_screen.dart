@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:offertorio/app_core/theme/colors.dart';
-import 'package:offertorio/app_core/utils/assets_url/assets_url.dart';
-import 'package:offertorio/app_core/utils/widgets/buttons/general_buttom.dart';
-import 'package:offertorio/app_core/utils/widgets/miscellenius/custom_space.dart';
-import 'package:offertorio/app_core/utils/widgets/reactive_textfield/custom_reactivetextfield.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:offertorio/profile/providers/profile_providers.dart';
 import 'package:reactive_forms/reactive_forms.dart';
+
+import 'package:offertorio/app_core/utils/widgets/shared_widgets.dart';
+import 'widgets/camera_button.dart';
 
 class ProfileOnBoardingScreen extends ConsumerWidget {
   static const String routeName = 'profile_on_boarding';
@@ -16,7 +14,10 @@ class ProfileOnBoardingScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final form = ref.watch(profileFormStateProvider);
+    final imageState = ref.watch(imagePickerNotifierProvider);
+    XFile xfileImage = XFile('');
     ThemeData theme = Theme.of(context);
+
     return SafeArea(
       child: Scaffold(
           body: Padding(
@@ -43,35 +44,31 @@ class ProfileOnBoardingScreen extends ConsumerWidget {
                   alignment: Alignment.center,
                   children: [
                     InkWell(
+                      borderRadius: BorderRadius.circular(100),
                       onTap: () {
-                        // TODO: Add image picker from gallery
+                        ref
+                            .read(imagePickerNotifierProvider.notifier)
+                            .pickImageFromGallery(context);
                       },
-                      child: SvgPicture.asset(
-                        AssetsUrl.avatar_svg,
-                        height: 100,
-                      ),
+                      child: imageState.when(
+                          initial: () => const AppAvatar(),
+                          loading: () => const AppAvatar(isLoading: true),
+                          data: (image) {
+                            xfileImage = image;
+                            print(xfileImage.path);
+                            return AppAvatar(image: image);
+                          },
+                          error: (message) => const AppAvatar()),
                     ),
                     Positioned(
                       bottom: 0,
                       right: 102,
-                      child: Container(
-                        height: 35,
-                        width: 35,
-                        decoration: BoxDecoration(
-                          color: AppColors.withe,
-                          borderRadius: BorderRadius.circular(50),
-                        ),
-                        child: InkWell(
-                          splashColor: Colors.transparent,
-                          onTap: () {
-                            // TODO: Add image picker from camera
-                          },
-                          child: const Icon(
-                            Icons.camera_alt_rounded,
-                            size: 32,
-                            color: AppColors.tertiary,
-                          ),
-                        ),
+                      child: CameraButton(
+                        onPressed: () {
+                          ref
+                              .read(imagePickerNotifierProvider.notifier)
+                              .pickImageFromCamera(context);
+                        },
                       ),
                     ),
                   ],
@@ -79,8 +76,8 @@ class ProfileOnBoardingScreen extends ConsumerWidget {
               ),
               CustomSpace.vertical(60),
               const CustomRXTextFields(
-                formControlName: 'name',
                 hintTxt: 'Name',
+                formControlName: 'name',
               ),
               const Spacer(),
               ReactiveFormConsumer(
