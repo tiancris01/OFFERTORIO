@@ -16,9 +16,6 @@ class UserDTO with _$UserDTO {
     required bool isOnline,
   }) = _UserDTO;
 
-  factory UserDTO.fromJson(Map<String, dynamic> json) =>
-      _$UserDTOFromJson(json);
-
   factory UserDTO.fromEntite(UserEntitie _) {
     return UserDTO(
       name: _.name,

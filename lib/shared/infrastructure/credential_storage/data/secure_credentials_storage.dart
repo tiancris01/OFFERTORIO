@@ -23,7 +23,7 @@ class SecureCredentialsStorage implements CredentialStorageUseCase {
         return null;
       }
       try {
-        return _catchCredential = jsonDecode(json);
+        return _catchCredential;
       } on FormatException {
         return null;
       }
@@ -33,9 +33,7 @@ class SecureCredentialsStorage implements CredentialStorageUseCase {
   @override
   Future<void> save(UserCredential userCredential) {
     return _secureStorage.write(
-      key: _key,
-      value: userCredential.toJson(),
-    );
+        key: _key, value: const JsonEncoder().convert(userCredential.toJson()));
   }
 
   @override
@@ -46,9 +44,9 @@ class SecureCredentialsStorage implements CredentialStorageUseCase {
 }
 
 extension ToJson on UserCredential {
-  String toJson() => json.encode({
-        'additionalUserInfo: $additionalUserInfo, '
-            'credential: $credential, '
-            'user: $user,'
-      });
+  Map<String, dynamic> toJson() => {
+        'user': user,
+        'additionalUserInfo': additionalUserInfo,
+        'credential': credential,
+      };
 }

@@ -1,10 +1,14 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:offertorio/app_core/utils/widgets/shared_widgets.dart';
+import 'package:offertorio/auth/providers/auth_providers.dart';
+import 'package:offertorio/profile/providers/profile/firebase_storage_notifier_provider/firebase_storage_notifier_provider.dart';
 import 'package:offertorio/profile/providers/profile_providers.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
-import 'package:offertorio/app_core/utils/widgets/shared_widgets.dart';
 import 'widgets/camera_button.dart';
 
 class ProfileOnBoardingScreen extends ConsumerWidget {
@@ -13,6 +17,7 @@ class ProfileOnBoardingScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final userInfo = ref.watch(authFirebaseProvider);
     final form = ref.watch(profileFormStateProvider);
     final imageState = ref.watch(imagePickerNotifierProvider);
     XFile xfileImage = XFile('');
@@ -55,7 +60,6 @@ class ProfileOnBoardingScreen extends ConsumerWidget {
                           loading: () => const AppAvatar(isLoading: true),
                           data: (image) {
                             xfileImage = image;
-                            print(xfileImage.path);
                             return AppAvatar(image: image);
                           },
                           error: (message) => const AppAvatar()),
@@ -84,7 +88,17 @@ class ProfileOnBoardingScreen extends ConsumerWidget {
                 builder: (context, form, child) {
                   return GeneralButton(
                     title: 'Continuar',
-                    onPressed: form.valid ? () {} : null,
+                    onPressed: form.valid
+                        ? () {
+                            final String uid = userInfo.getCurrentUserUid();
+                            ref
+                                .read(firebaseStorageNotifierProvider.notifier)
+                                .uploadToFirebaseStorage(
+                                  path: "user/profilePic/$uid",
+                                  file: File(xfileImage.path),
+                                );
+                          }
+                        : null,
                   );
                 },
               )

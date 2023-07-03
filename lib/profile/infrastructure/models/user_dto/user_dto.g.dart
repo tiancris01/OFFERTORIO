@@ -6,7 +6,7 @@ part of 'user_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_UserDTO _$$_UserDTOFromJson(Map<String, dynamic> json) => _$_UserDTO(
+UserDTO _$UserDTOFromJson(Map<String, dynamic> json) => UserDTO(
       name: json['name'] as String,
       uid: json['uid'] as String,
       profileImage: json['profileImage'] as String,
@@ -14,8 +14,7 @@ _$_UserDTO _$$_UserDTOFromJson(Map<String, dynamic> json) => _$_UserDTO(
       isOnline: json['isOnline'] as bool,
     );
 
-Map<String, dynamic> _$$_UserDTOToJson(_$_UserDTO instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$UserDTOToJson(UserDTO instance) => <String, dynamic>{
       'name': instance.name,
       'uid': instance.uid,
       'profileImage': instance.profileImage,
