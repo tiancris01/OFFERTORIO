@@ -14,12 +14,6 @@ class FirebaseStorageDataSource extends FirebaseStorageUseCase {
   @override
   Future<String> uploadFile(String path, File imageFile) async {
     String downloadUrl = '';
-    /*  final UploadTask uploadTask = _firebaseStorage.ref().child('/user').putFile(
-          fileName,
-        );
-    TaskSnapshot taskSnapshot = await uploadTask;
-    downloadUrl = await taskSnapshot.ref.getDownloadURL();
- */
     final tempDir = await path_provider.getTemporaryDirectory();
     final file = await FlutterImageCompress.compressAndGetFile(
       imageFile.absolute.path,
@@ -31,7 +25,7 @@ class FirebaseStorageDataSource extends FirebaseStorageUseCase {
     final uploadTask = _firebaseStorage
         .ref()
         .child('${path}_images.jpg')
-        .putFile(file!, metadata);
+        .putFile(File(file!.path), metadata);
 
     uploadTask.snapshotEvents.listen(
       (TaskSnapshot taskSnapshot) async {
@@ -51,7 +45,7 @@ class FirebaseStorageDataSource extends FirebaseStorageUseCase {
             // Handle unsuccessful uploads
             break;
           case TaskState.success:
-            downloadUrl = await downloadFile(uploadTask);
+            downloadUrl = await downloadFile(path);
             print(downloadUrl);
             break;
         }
@@ -61,8 +55,11 @@ class FirebaseStorageDataSource extends FirebaseStorageUseCase {
   }
 
   @override
-  Future<String> downloadFile(UploadTask task) async {
-    final String downloadUrl = await task.snapshot.ref.getDownloadURL();
+  Future<String> downloadFile(String path) async {
+    final String downloadUrl = await _firebaseStorage
+        .ref()
+        .child('${path}_images.jpg')
+        .getDownloadURL();
     return downloadUrl;
   }
 

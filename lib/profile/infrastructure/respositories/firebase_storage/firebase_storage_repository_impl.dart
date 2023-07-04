@@ -1,8 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:io';
 
-import 'package:firebase_storage/firebase_storage.dart';
-
 import 'package:offertorio/profile/domain/repositories/Firebase_storage/firestorage_repository.dart';
 import 'package:offertorio/profile/domain/usecases/firebase_storage/firebase_storage_usecase.dart';
 
@@ -19,9 +17,8 @@ class FirebaseStorageRepositoryImpl extends FirebaseStorageRepository {
   }
 
   @override
-  Future<String> downloadFile(UploadTask task) {
-    // TODO: implement downloadFile
-    throw UnimplementedError();
+  Future<String> downloadFile(String path) async {
+    return await _firebaseStorageUseCase.downloadFile(path);
   }
 
   @override

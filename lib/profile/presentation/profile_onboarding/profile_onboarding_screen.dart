@@ -1,13 +1,15 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:reactive_forms/reactive_forms.dart';
+
 import 'package:offertorio/app_core/utils/widgets/shared_widgets.dart';
 import 'package:offertorio/auth/providers/auth_providers.dart';
-import 'package:offertorio/profile/providers/profile/firebase_storage_notifier_provider/firebase_storage_notifier_provider.dart';
+import 'package:offertorio/profile/providers/profile/firebase_storage_notifier_provider/firebase_storage_state/firebase_storage_state.dart';
 import 'package:offertorio/profile/providers/profile_providers.dart';
-import 'package:reactive_forms/reactive_forms.dart';
 
 import 'widgets/camera_button.dart';
 
@@ -15,10 +17,51 @@ class ProfileOnBoardingScreen extends ConsumerWidget {
   static const String routeName = 'profile_on_boarding';
   const ProfileOnBoardingScreen({Key? key}) : super(key: key);
 
+  Future<void> _openVerification(BuildContext context) async {
+    // await context.pushNamed(SignInVerificationScreen.routeName);
+  }
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final userInfo = ref.watch(authFirebaseProvider);
+    ref.listen<FirebaseStorageState>(
+      firebaseStorageNotifierProvider,
+      (_, state) {
+        if (state == const FirebaseStorageState.success()) {
+          _openVerification(context);
+        }
+      },
+    );
+
     final form = ref.watch(profileFormStateProvider);
+    final userUid =
+        ref.read(authFirebaseNotifierProvider.notifier).getCurrentUserUid();
+
+    return ProfileOnBoardingScreenBuilder(
+      form: form,
+      uid: userUid,
+    );
+  }
+}
+
+class ProfileOnBoardingScreenBuilder extends ConsumerStatefulWidget {
+  final FormGroup form;
+  final String uid;
+
+  const ProfileOnBoardingScreenBuilder({
+    Key? key,
+    required this.form,
+    required this.uid,
+  }) : super(key: key);
+
+  @override
+  ConsumerState<ConsumerStatefulWidget> createState() =>
+      _ProfileOnBoardingScreenBuilderState();
+}
+
+class _ProfileOnBoardingScreenBuilderState
+    extends ConsumerState<ProfileOnBoardingScreenBuilder> {
+  @override
+  Widget build(BuildContext context) {
     final imageState = ref.watch(imagePickerNotifierProvider);
     XFile xfileImage = XFile('');
     ThemeData theme = Theme.of(context);
@@ -28,7 +71,7 @@ class ProfileOnBoardingScreen extends ConsumerWidget {
           body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 50.0),
         child: ReactiveForm(
-          formGroup: form,
+          formGroup: widget.form,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
@@ -90,13 +133,13 @@ class ProfileOnBoardingScreen extends ConsumerWidget {
                     title: 'Continuar',
                     onPressed: form.valid
                         ? () {
-                            final String uid = userInfo.getCurrentUserUid();
-                            ref
+                            final downloadUrl = ref
                                 .read(firebaseStorageNotifierProvider.notifier)
                                 .uploadToFirebaseStorage(
-                                  path: "user/profilePic/$uid",
+                                  path: "user/profilePic/${widget.uid}",
                                   file: File(xfileImage.path),
                                 );
+                            print(downloadUrl);
                           }
                         : null,
                   );
