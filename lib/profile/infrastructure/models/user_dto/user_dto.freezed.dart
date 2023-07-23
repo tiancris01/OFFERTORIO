@@ -14,6 +14,10 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+UserDTO _$UserDTOFromJson(Map<String, dynamic> json) {
+  return _UserDTO.fromJson(json);
+}
+
 /// @nodoc
 mixin _$UserDTO {
   String get name => throw _privateConstructorUsedError;
@@ -22,6 +26,7 @@ mixin _$UserDTO {
   String get phoneNumber => throw _privateConstructorUsedError;
   bool get isOnline => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $UserDTOCopyWith<UserDTO> get copyWith => throw _privateConstructorUsedError;
 }
@@ -140,7 +145,7 @@ class __$$_UserDTOCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_UserDTO extends _UserDTO {
   const _$_UserDTO(
       {required this.name,
@@ -149,6 +154,9 @@ class _$_UserDTO extends _UserDTO {
       required this.phoneNumber,
       required this.isOnline})
       : super._();
+
+  factory _$_UserDTO.fromJson(Map<String, dynamic> json) =>
+      _$$_UserDTOFromJson(json);
 
   @override
   final String name;
@@ -181,6 +189,7 @@ class _$_UserDTO extends _UserDTO {
                 other.isOnline == isOnline));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode =>
       Object.hash(runtimeType, name, uid, profileImage, phoneNumber, isOnline);
@@ -190,6 +199,13 @@ class _$_UserDTO extends _UserDTO {
   @pragma('vm:prefer-inline')
   _$$_UserDTOCopyWith<_$_UserDTO> get copyWith =>
       __$$_UserDTOCopyWithImpl<_$_UserDTO>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_UserDTOToJson(
+      this,
+    );
+  }
 }
 
 abstract class _UserDTO extends UserDTO {
@@ -200,6 +216,8 @@ abstract class _UserDTO extends UserDTO {
       required final String phoneNumber,
       required final bool isOnline}) = _$_UserDTO;
   const _UserDTO._() : super._();
+
+  factory _UserDTO.fromJson(Map<String, dynamic> json) = _$_UserDTO.fromJson;
 
   @override
   String get name;

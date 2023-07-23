@@ -1,8 +1,8 @@
 import 'dart:io';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:offertorio/profile/providers/profile/firebase_storage_notifier_provider/firebase_storage_state/firebase_storage_state.dart';
-import 'package:offertorio/profile/providers/profile/global_providers/global_providers.dart';
+import 'package:offertorio/profile/application/profile/firebase_storage_notifier_provider/firebase_storage_state/firebase_storage_state.dart';
+import 'package:offertorio/profile/application/profile_providers.dart';
 
 final firebaseStorageNotifierProvider =
     StateNotifierProvider<FirebaseStorageNotifier, FirebaseStorageState>((ref) {
@@ -25,12 +25,12 @@ class FirebaseStorageNotifier extends StateNotifier<FirebaseStorageState> {
     required this.downloadFile,
   }) : super(const FirebaseStorageState.inital());
 
-  Future<String> uploadToFirebaseStorage({
+  Future<void> uploadToFirebaseStorage({
     required String path,
     required File file,
   }) async {
-    final downloadUrl = await uploadFile(path, file);
-    return downloadUrl;
+    await uploadFile(path, file);
+    state = const FirebaseStorageState.downloaded();
   }
 
   Future<String> downloadFromFirebaseStorage({

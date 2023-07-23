@@ -4,7 +4,7 @@ import 'dart:io';
 import 'package:offertorio/profile/domain/repositories/Firebase_storage/firestorage_repository.dart';
 import 'package:offertorio/profile/domain/usecases/firebase_storage/firebase_storage_usecase.dart';
 
-class FirebaseStorageRepositoryImpl extends FirebaseStorageRepository {
+class FirebaseStorageRepositoryImpl implements FirebaseStorageRepository {
   final FirebaseStorageUseCase _firebaseStorageUseCase;
 
   FirebaseStorageRepositoryImpl({

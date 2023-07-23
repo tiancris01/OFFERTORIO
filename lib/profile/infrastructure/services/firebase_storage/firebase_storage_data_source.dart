@@ -5,7 +5,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter_image_compress/flutter_image_compress.dart';
 import 'package:path_provider/path_provider.dart' as path_provider;
 
-class FirebaseStorageDataSource extends FirebaseStorageUseCase {
+class FirebaseStorageDataSource implements FirebaseStorageUseCase {
   final FirebaseStorage _firebaseStorage;
 
   FirebaseStorageDataSource({required FirebaseStorage firebaseStorage})

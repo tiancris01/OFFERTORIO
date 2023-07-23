@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_libphonenumber/flutter_libphonenumber.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:offertorio/auth/providers/fiebase_auth_phone/global_providers/firabase_phone_auth_global_providers.dart';
+import 'package:offertorio/auth/providers/auth_providers.dart';
 
 class CountrySelectionScreen extends StatelessWidget {
   static const String routeName = 'country_selection_screen';

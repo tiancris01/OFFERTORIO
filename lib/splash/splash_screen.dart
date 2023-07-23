@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:offertorio/auth/presentation/auth_screens.dart';
 import 'package:offertorio/auth/providers/auth_providers.dart';
-import 'package:offertorio/profile/presentation/profile_onboarding/profile_onboarding_screen.dart';
+import 'package:offertorio/profile/presentation/screens/profile_onboarding_screen.dart';
 
 class SplashScree extends ConsumerStatefulWidget {
   static const String routeName = 'splash';

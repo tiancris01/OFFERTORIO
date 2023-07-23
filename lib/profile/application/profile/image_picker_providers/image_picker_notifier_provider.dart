@@ -4,9 +4,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
-
-import 'package:offertorio/profile/providers/profile/image_picker_providers/image_picker_state/image_picker_state.dart';
-import 'package:offertorio/profile/providers/profile_providers.dart';
+import 'package:offertorio/profile/application/profile/image_picker_providers/image_picker_state/image_picker_state.dart';
+import 'package:offertorio/profile/application/profile_providers.dart';
 
 final imagePickerNotifierProvider =
     StateNotifierProvider<ImagePickerNotifierProvider, ImagePickerSate>(

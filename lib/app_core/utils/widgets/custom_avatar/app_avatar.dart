@@ -7,12 +7,12 @@ import 'package:offertorio/app_core/utils/assets_url/assets_url.dart';
 
 class AppAvatar extends StatelessWidget {
   final double? size;
-  final XFile? image;
+  final XFile? xfile;
   final bool? isLoading;
 
   const AppAvatar({
     Key? key,
-    this.image,
+    this.xfile,
     this.isLoading,
     this.size = 125.0,
   }) : super(key: key);
@@ -29,10 +29,10 @@ class AppAvatar extends StatelessWidget {
           ? const Center(
               child: CircularProgressIndicator(),
             )
-          : image != null
+          : xfile != null
               ? ClipOval(
                   child: Image.file(
-                    File(image!.path),
+                    File(xfile!.path),
                     fit: BoxFit.cover,
                     width: size,
                     height: size,

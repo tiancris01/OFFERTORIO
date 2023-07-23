@@ -1,17 +1,19 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:offertorio/app_core/utils/snackbar/show_snackbar.dart';
+import 'package:offertorio/auth/providers/auth_providers.dart';
+import 'package:offertorio/profile/application/profile/firebase_storage_notifier_provider/firebase_storage_state/firebase_storage_state.dart';
+import 'package:offertorio/profile/application/profile_providers.dart';
+import 'package:offertorio/profile/presentation/providers/profile_notifier_provider.dart';
+import 'package:offertorio/profile/presentation/providers/state/profile_state.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
 import 'package:offertorio/app_core/utils/widgets/shared_widgets.dart';
-import 'package:offertorio/auth/providers/auth_providers.dart';
-import 'package:offertorio/profile/providers/profile/firebase_storage_notifier_provider/firebase_storage_state/firebase_storage_state.dart';
-import 'package:offertorio/profile/providers/profile_providers.dart';
 
-import 'widgets/camera_button.dart';
+import '../widgets/camera_button.dart';
 
 class ProfileOnBoardingScreen extends ConsumerWidget {
   static const String routeName = 'profile_on_boarding';
@@ -62,8 +64,13 @@ class _ProfileOnBoardingScreenBuilderState
     extends ConsumerState<ProfileOnBoardingScreenBuilder> {
   @override
   Widget build(BuildContext context) {
+    final imageState2 = ref.watch(profileNotifierProvider);
+    ref.listen<ProfileState>(profileNotifierProvider, (previous, next) {
+      if (next is Error) {
+        showSnackbar(context, next.message ?? '');
+      } else if (next is ProfileCreated) {}
+    });
     final imageState = ref.watch(imagePickerNotifierProvider);
-    XFile xfileImage = XFile('');
     ThemeData theme = Theme.of(context);
 
     return SafeArea(
@@ -95,17 +102,22 @@ class _ProfileOnBoardingScreenBuilderState
                       borderRadius: BorderRadius.circular(100),
                       onTap: () {
                         ref
-                            .read(imagePickerNotifierProvider.notifier)
-                            .pickImageFromGallery(context);
+                            .read(profileNotifierProvider.notifier)
+                            // .read(imagePickerNotifierProvider.notifier)
+                            // .pickImageFromGallery(context);
+                            .pickImage(source: ImageSource.gallery);
                       },
-                      child: imageState.when(
-                          initial: () => const AppAvatar(),
-                          loading: () => const AppAvatar(isLoading: true),
-                          data: (image) {
-                            xfileImage = image;
-                            return AppAvatar(image: image);
-                          },
-                          error: (message) => const AppAvatar()),
+                      child: imageState2.maybeWhen(
+                        initial: () => const AppAvatar(),
+                        imageLoading: () => const AppAvatar(isLoading: true),
+                        imageLoaded: (xfile) {
+                          return AppAvatar(xfile: xfile);
+                        },
+                        error: (message) => const AppAvatar(),
+                        orElse: () {
+                          return null;
+                        },
+                      ),
                     ),
                     Positioned(
                       bottom: 0,
@@ -113,8 +125,10 @@ class _ProfileOnBoardingScreenBuilderState
                       child: CameraButton(
                         onPressed: () {
                           ref
-                              .read(imagePickerNotifierProvider.notifier)
-                              .pickImageFromCamera(context);
+                              .read(profileNotifierProvider.notifier)
+                              .pickImage(source: ImageSource.camera);
+                          // .read(imagePickerNotifierProvider.notifier)
+                          // .pickImageFromCamera(context);
                         },
                       ),
                     ),
@@ -131,17 +145,7 @@ class _ProfileOnBoardingScreenBuilderState
                 builder: (context, form, child) {
                   return GeneralButton(
                     title: 'Continuar',
-                    onPressed: form.valid
-                        ? () {
-                            final downloadUrl = ref
-                                .read(firebaseStorageNotifierProvider.notifier)
-                                .uploadToFirebaseStorage(
-                                  path: "user/profilePic/${widget.uid}",
-                                  file: File(xfileImage.path),
-                                );
-                            print(downloadUrl);
-                          }
-                        : null,
+                    onPressed: form.valid ? () {} : null,
                   );
                 },
               )
