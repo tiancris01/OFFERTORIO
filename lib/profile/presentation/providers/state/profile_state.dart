@@ -9,7 +9,8 @@ class ProfileState with _$ProfileState {
   const factory ProfileState.initial() = _initial;
   const factory ProfileState.imageLoading() = ImageLoading;
   const factory ProfileState.imageLoaded({XFile? xfile}) = ImageLoaded;
-  const factory ProfileState.imageUpload({String? urlImage}) = ImageUpload;
+  const factory ProfileState.imageUploading() = ImageUpload;
+  const factory ProfileState.imageUploaded({String? urlImage}) = ImageUploaded;
   const factory ProfileState.profileCreated() = ProfileCreated;
   const factory ProfileState.error({String? message}) = Error;
 }

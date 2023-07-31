@@ -21,7 +21,8 @@ mixin _$ProfileState {
     required TResult Function() initial,
     required TResult Function() imageLoading,
     required TResult Function(XFile? xfile) imageLoaded,
-    required TResult Function(String? urlImage) imageUpload,
+    required TResult Function() imageUploading,
+    required TResult Function(String? urlImage) imageUploaded,
     required TResult Function() profileCreated,
     required TResult Function(String? message) error,
   }) =>
@@ -31,7 +32,8 @@ mixin _$ProfileState {
     TResult? Function()? initial,
     TResult? Function()? imageLoading,
     TResult? Function(XFile? xfile)? imageLoaded,
-    TResult? Function(String? urlImage)? imageUpload,
+    TResult? Function()? imageUploading,
+    TResult? Function(String? urlImage)? imageUploaded,
     TResult? Function()? profileCreated,
     TResult? Function(String? message)? error,
   }) =>
@@ -41,7 +43,8 @@ mixin _$ProfileState {
     TResult Function()? initial,
     TResult Function()? imageLoading,
     TResult Function(XFile? xfile)? imageLoaded,
-    TResult Function(String? urlImage)? imageUpload,
+    TResult Function()? imageUploading,
+    TResult Function(String? urlImage)? imageUploaded,
     TResult Function()? profileCreated,
     TResult Function(String? message)? error,
     required TResult orElse(),
@@ -52,7 +55,8 @@ mixin _$ProfileState {
     required TResult Function(_initial value) initial,
     required TResult Function(ImageLoading value) imageLoading,
     required TResult Function(ImageLoaded value) imageLoaded,
-    required TResult Function(ImageUpload value) imageUpload,
+    required TResult Function(ImageUpload value) imageUploading,
+    required TResult Function(ImageUploaded value) imageUploaded,
     required TResult Function(ProfileCreated value) profileCreated,
     required TResult Function(Error value) error,
   }) =>
@@ -62,7 +66,8 @@ mixin _$ProfileState {
     TResult? Function(_initial value)? initial,
     TResult? Function(ImageLoading value)? imageLoading,
     TResult? Function(ImageLoaded value)? imageLoaded,
-    TResult? Function(ImageUpload value)? imageUpload,
+    TResult? Function(ImageUpload value)? imageUploading,
+    TResult? Function(ImageUploaded value)? imageUploaded,
     TResult? Function(ProfileCreated value)? profileCreated,
     TResult? Function(Error value)? error,
   }) =>
@@ -72,7 +77,8 @@ mixin _$ProfileState {
     TResult Function(_initial value)? initial,
     TResult Function(ImageLoading value)? imageLoading,
     TResult Function(ImageLoaded value)? imageLoaded,
-    TResult Function(ImageUpload value)? imageUpload,
+    TResult Function(ImageUpload value)? imageUploading,
+    TResult Function(ImageUploaded value)? imageUploaded,
     TResult Function(ProfileCreated value)? profileCreated,
     TResult Function(Error value)? error,
     required TResult orElse(),
@@ -138,7 +144,8 @@ class _$_initial extends _initial {
     required TResult Function() initial,
     required TResult Function() imageLoading,
     required TResult Function(XFile? xfile) imageLoaded,
-    required TResult Function(String? urlImage) imageUpload,
+    required TResult Function() imageUploading,
+    required TResult Function(String? urlImage) imageUploaded,
     required TResult Function() profileCreated,
     required TResult Function(String? message) error,
   }) {
@@ -151,7 +158,8 @@ class _$_initial extends _initial {
     TResult? Function()? initial,
     TResult? Function()? imageLoading,
     TResult? Function(XFile? xfile)? imageLoaded,
-    TResult? Function(String? urlImage)? imageUpload,
+    TResult? Function()? imageUploading,
+    TResult? Function(String? urlImage)? imageUploaded,
     TResult? Function()? profileCreated,
     TResult? Function(String? message)? error,
   }) {
@@ -164,7 +172,8 @@ class _$_initial extends _initial {
     TResult Function()? initial,
     TResult Function()? imageLoading,
     TResult Function(XFile? xfile)? imageLoaded,
-    TResult Function(String? urlImage)? imageUpload,
+    TResult Function()? imageUploading,
+    TResult Function(String? urlImage)? imageUploaded,
     TResult Function()? profileCreated,
     TResult Function(String? message)? error,
     required TResult orElse(),
@@ -181,7 +190,8 @@ class _$_initial extends _initial {
     required TResult Function(_initial value) initial,
     required TResult Function(ImageLoading value) imageLoading,
     required TResult Function(ImageLoaded value) imageLoaded,
-    required TResult Function(ImageUpload value) imageUpload,
+    required TResult Function(ImageUpload value) imageUploading,
+    required TResult Function(ImageUploaded value) imageUploaded,
     required TResult Function(ProfileCreated value) profileCreated,
     required TResult Function(Error value) error,
   }) {
@@ -194,7 +204,8 @@ class _$_initial extends _initial {
     TResult? Function(_initial value)? initial,
     TResult? Function(ImageLoading value)? imageLoading,
     TResult? Function(ImageLoaded value)? imageLoaded,
-    TResult? Function(ImageUpload value)? imageUpload,
+    TResult? Function(ImageUpload value)? imageUploading,
+    TResult? Function(ImageUploaded value)? imageUploaded,
     TResult? Function(ProfileCreated value)? profileCreated,
     TResult? Function(Error value)? error,
   }) {
@@ -207,7 +218,8 @@ class _$_initial extends _initial {
     TResult Function(_initial value)? initial,
     TResult Function(ImageLoading value)? imageLoading,
     TResult Function(ImageLoaded value)? imageLoaded,
-    TResult Function(ImageUpload value)? imageUpload,
+    TResult Function(ImageUpload value)? imageUploading,
+    TResult Function(ImageUploaded value)? imageUploaded,
     TResult Function(ProfileCreated value)? profileCreated,
     TResult Function(Error value)? error,
     required TResult orElse(),
@@ -265,7 +277,8 @@ class _$ImageLoading extends ImageLoading {
     required TResult Function() initial,
     required TResult Function() imageLoading,
     required TResult Function(XFile? xfile) imageLoaded,
-    required TResult Function(String? urlImage) imageUpload,
+    required TResult Function() imageUploading,
+    required TResult Function(String? urlImage) imageUploaded,
     required TResult Function() profileCreated,
     required TResult Function(String? message) error,
   }) {
@@ -278,7 +291,8 @@ class _$ImageLoading extends ImageLoading {
     TResult? Function()? initial,
     TResult? Function()? imageLoading,
     TResult? Function(XFile? xfile)? imageLoaded,
-    TResult? Function(String? urlImage)? imageUpload,
+    TResult? Function()? imageUploading,
+    TResult? Function(String? urlImage)? imageUploaded,
     TResult? Function()? profileCreated,
     TResult? Function(String? message)? error,
   }) {
@@ -291,7 +305,8 @@ class _$ImageLoading extends ImageLoading {
     TResult Function()? initial,
     TResult Function()? imageLoading,
     TResult Function(XFile? xfile)? imageLoaded,
-    TResult Function(String? urlImage)? imageUpload,
+    TResult Function()? imageUploading,
+    TResult Function(String? urlImage)? imageUploaded,
     TResult Function()? profileCreated,
     TResult Function(String? message)? error,
     required TResult orElse(),
@@ -308,7 +323,8 @@ class _$ImageLoading extends ImageLoading {
     required TResult Function(_initial value) initial,
     required TResult Function(ImageLoading value) imageLoading,
     required TResult Function(ImageLoaded value) imageLoaded,
-    required TResult Function(ImageUpload value) imageUpload,
+    required TResult Function(ImageUpload value) imageUploading,
+    required TResult Function(ImageUploaded value) imageUploaded,
     required TResult Function(ProfileCreated value) profileCreated,
     required TResult Function(Error value) error,
   }) {
@@ -321,7 +337,8 @@ class _$ImageLoading extends ImageLoading {
     TResult? Function(_initial value)? initial,
     TResult? Function(ImageLoading value)? imageLoading,
     TResult? Function(ImageLoaded value)? imageLoaded,
-    TResult? Function(ImageUpload value)? imageUpload,
+    TResult? Function(ImageUpload value)? imageUploading,
+    TResult? Function(ImageUploaded value)? imageUploaded,
     TResult? Function(ProfileCreated value)? profileCreated,
     TResult? Function(Error value)? error,
   }) {
@@ -334,7 +351,8 @@ class _$ImageLoading extends ImageLoading {
     TResult Function(_initial value)? initial,
     TResult Function(ImageLoading value)? imageLoading,
     TResult Function(ImageLoaded value)? imageLoaded,
-    TResult Function(ImageUpload value)? imageUpload,
+    TResult Function(ImageUpload value)? imageUploading,
+    TResult Function(ImageUploaded value)? imageUploaded,
     TResult Function(ProfileCreated value)? profileCreated,
     TResult Function(Error value)? error,
     required TResult orElse(),
@@ -418,7 +436,8 @@ class _$ImageLoaded extends ImageLoaded {
     required TResult Function() initial,
     required TResult Function() imageLoading,
     required TResult Function(XFile? xfile) imageLoaded,
-    required TResult Function(String? urlImage) imageUpload,
+    required TResult Function() imageUploading,
+    required TResult Function(String? urlImage) imageUploaded,
     required TResult Function() profileCreated,
     required TResult Function(String? message) error,
   }) {
@@ -431,7 +450,8 @@ class _$ImageLoaded extends ImageLoaded {
     TResult? Function()? initial,
     TResult? Function()? imageLoading,
     TResult? Function(XFile? xfile)? imageLoaded,
-    TResult? Function(String? urlImage)? imageUpload,
+    TResult? Function()? imageUploading,
+    TResult? Function(String? urlImage)? imageUploaded,
     TResult? Function()? profileCreated,
     TResult? Function(String? message)? error,
   }) {
@@ -444,7 +464,8 @@ class _$ImageLoaded extends ImageLoaded {
     TResult Function()? initial,
     TResult Function()? imageLoading,
     TResult Function(XFile? xfile)? imageLoaded,
-    TResult Function(String? urlImage)? imageUpload,
+    TResult Function()? imageUploading,
+    TResult Function(String? urlImage)? imageUploaded,
     TResult Function()? profileCreated,
     TResult Function(String? message)? error,
     required TResult orElse(),
@@ -461,7 +482,8 @@ class _$ImageLoaded extends ImageLoaded {
     required TResult Function(_initial value) initial,
     required TResult Function(ImageLoading value) imageLoading,
     required TResult Function(ImageLoaded value) imageLoaded,
-    required TResult Function(ImageUpload value) imageUpload,
+    required TResult Function(ImageUpload value) imageUploading,
+    required TResult Function(ImageUploaded value) imageUploaded,
     required TResult Function(ProfileCreated value) profileCreated,
     required TResult Function(Error value) error,
   }) {
@@ -474,7 +496,8 @@ class _$ImageLoaded extends ImageLoaded {
     TResult? Function(_initial value)? initial,
     TResult? Function(ImageLoading value)? imageLoading,
     TResult? Function(ImageLoaded value)? imageLoaded,
-    TResult? Function(ImageUpload value)? imageUpload,
+    TResult? Function(ImageUpload value)? imageUploading,
+    TResult? Function(ImageUploaded value)? imageUploaded,
     TResult? Function(ProfileCreated value)? profileCreated,
     TResult? Function(Error value)? error,
   }) {
@@ -487,7 +510,8 @@ class _$ImageLoaded extends ImageLoaded {
     TResult Function(_initial value)? initial,
     TResult Function(ImageLoading value)? imageLoading,
     TResult Function(ImageLoaded value)? imageLoaded,
-    TResult Function(ImageUpload value)? imageUpload,
+    TResult Function(ImageUpload value)? imageUploading,
+    TResult Function(ImageUploaded value)? imageUploaded,
     TResult Function(ProfileCreated value)? profileCreated,
     TResult Function(Error value)? error,
     required TResult orElse(),
@@ -514,8 +538,6 @@ abstract class _$$ImageUploadCopyWith<$Res> {
   factory _$$ImageUploadCopyWith(
           _$ImageUpload value, $Res Function(_$ImageUpload) then) =
       __$$ImageUploadCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String? urlImage});
 }
 
 /// @nodoc
@@ -525,51 +547,26 @@ class __$$ImageUploadCopyWithImpl<$Res>
   __$$ImageUploadCopyWithImpl(
       _$ImageUpload _value, $Res Function(_$ImageUpload) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? urlImage = freezed,
-  }) {
-    return _then(_$ImageUpload(
-      urlImage: freezed == urlImage
-          ? _value.urlImage
-          : urlImage // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
-  }
 }
 
 /// @nodoc
 
 class _$ImageUpload extends ImageUpload {
-  const _$ImageUpload({this.urlImage}) : super._();
-
-  @override
-  final String? urlImage;
+  const _$ImageUpload() : super._();
 
   @override
   String toString() {
-    return 'ProfileState.imageUpload(urlImage: $urlImage)';
+    return 'ProfileState.imageUploading()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ImageUpload &&
-            (identical(other.urlImage, urlImage) ||
-                other.urlImage == urlImage));
+        (other.runtimeType == runtimeType && other is _$ImageUpload);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, urlImage);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ImageUploadCopyWith<_$ImageUpload> get copyWith =>
-      __$$ImageUploadCopyWithImpl<_$ImageUpload>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
@@ -577,11 +574,12 @@ class _$ImageUpload extends ImageUpload {
     required TResult Function() initial,
     required TResult Function() imageLoading,
     required TResult Function(XFile? xfile) imageLoaded,
-    required TResult Function(String? urlImage) imageUpload,
+    required TResult Function() imageUploading,
+    required TResult Function(String? urlImage) imageUploaded,
     required TResult Function() profileCreated,
     required TResult Function(String? message) error,
   }) {
-    return imageUpload(urlImage);
+    return imageUploading();
   }
 
   @override
@@ -590,11 +588,12 @@ class _$ImageUpload extends ImageUpload {
     TResult? Function()? initial,
     TResult? Function()? imageLoading,
     TResult? Function(XFile? xfile)? imageLoaded,
-    TResult? Function(String? urlImage)? imageUpload,
+    TResult? Function()? imageUploading,
+    TResult? Function(String? urlImage)? imageUploaded,
     TResult? Function()? profileCreated,
     TResult? Function(String? message)? error,
   }) {
-    return imageUpload?.call(urlImage);
+    return imageUploading?.call();
   }
 
   @override
@@ -603,13 +602,14 @@ class _$ImageUpload extends ImageUpload {
     TResult Function()? initial,
     TResult Function()? imageLoading,
     TResult Function(XFile? xfile)? imageLoaded,
-    TResult Function(String? urlImage)? imageUpload,
+    TResult Function()? imageUploading,
+    TResult Function(String? urlImage)? imageUploaded,
     TResult Function()? profileCreated,
     TResult Function(String? message)? error,
     required TResult orElse(),
   }) {
-    if (imageUpload != null) {
-      return imageUpload(urlImage);
+    if (imageUploading != null) {
+      return imageUploading();
     }
     return orElse();
   }
@@ -620,11 +620,12 @@ class _$ImageUpload extends ImageUpload {
     required TResult Function(_initial value) initial,
     required TResult Function(ImageLoading value) imageLoading,
     required TResult Function(ImageLoaded value) imageLoaded,
-    required TResult Function(ImageUpload value) imageUpload,
+    required TResult Function(ImageUpload value) imageUploading,
+    required TResult Function(ImageUploaded value) imageUploaded,
     required TResult Function(ProfileCreated value) profileCreated,
     required TResult Function(Error value) error,
   }) {
-    return imageUpload(this);
+    return imageUploading(this);
   }
 
   @override
@@ -633,11 +634,12 @@ class _$ImageUpload extends ImageUpload {
     TResult? Function(_initial value)? initial,
     TResult? Function(ImageLoading value)? imageLoading,
     TResult? Function(ImageLoaded value)? imageLoaded,
-    TResult? Function(ImageUpload value)? imageUpload,
+    TResult? Function(ImageUpload value)? imageUploading,
+    TResult? Function(ImageUploaded value)? imageUploaded,
     TResult? Function(ProfileCreated value)? profileCreated,
     TResult? Function(Error value)? error,
   }) {
-    return imageUpload?.call(this);
+    return imageUploading?.call(this);
   }
 
   @override
@@ -646,25 +648,186 @@ class _$ImageUpload extends ImageUpload {
     TResult Function(_initial value)? initial,
     TResult Function(ImageLoading value)? imageLoading,
     TResult Function(ImageLoaded value)? imageLoaded,
-    TResult Function(ImageUpload value)? imageUpload,
+    TResult Function(ImageUpload value)? imageUploading,
+    TResult Function(ImageUploaded value)? imageUploaded,
     TResult Function(ProfileCreated value)? profileCreated,
     TResult Function(Error value)? error,
     required TResult orElse(),
   }) {
-    if (imageUpload != null) {
-      return imageUpload(this);
+    if (imageUploading != null) {
+      return imageUploading(this);
     }
     return orElse();
   }
 }
 
 abstract class ImageUpload extends ProfileState {
-  const factory ImageUpload({final String? urlImage}) = _$ImageUpload;
+  const factory ImageUpload() = _$ImageUpload;
   const ImageUpload._() : super._();
+}
+
+/// @nodoc
+abstract class _$$ImageUploadedCopyWith<$Res> {
+  factory _$$ImageUploadedCopyWith(
+          _$ImageUploaded value, $Res Function(_$ImageUploaded) then) =
+      __$$ImageUploadedCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String? urlImage});
+}
+
+/// @nodoc
+class __$$ImageUploadedCopyWithImpl<$Res>
+    extends _$ProfileStateCopyWithImpl<$Res, _$ImageUploaded>
+    implements _$$ImageUploadedCopyWith<$Res> {
+  __$$ImageUploadedCopyWithImpl(
+      _$ImageUploaded _value, $Res Function(_$ImageUploaded) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? urlImage = freezed,
+  }) {
+    return _then(_$ImageUploaded(
+      urlImage: freezed == urlImage
+          ? _value.urlImage
+          : urlImage // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ImageUploaded extends ImageUploaded {
+  const _$ImageUploaded({this.urlImage}) : super._();
+
+  @override
+  final String? urlImage;
+
+  @override
+  String toString() {
+    return 'ProfileState.imageUploaded(urlImage: $urlImage)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ImageUploaded &&
+            (identical(other.urlImage, urlImage) ||
+                other.urlImage == urlImage));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, urlImage);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ImageUploadedCopyWith<_$ImageUploaded> get copyWith =>
+      __$$ImageUploadedCopyWithImpl<_$ImageUploaded>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() imageLoading,
+    required TResult Function(XFile? xfile) imageLoaded,
+    required TResult Function() imageUploading,
+    required TResult Function(String? urlImage) imageUploaded,
+    required TResult Function() profileCreated,
+    required TResult Function(String? message) error,
+  }) {
+    return imageUploaded(urlImage);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? imageLoading,
+    TResult? Function(XFile? xfile)? imageLoaded,
+    TResult? Function()? imageUploading,
+    TResult? Function(String? urlImage)? imageUploaded,
+    TResult? Function()? profileCreated,
+    TResult? Function(String? message)? error,
+  }) {
+    return imageUploaded?.call(urlImage);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? imageLoading,
+    TResult Function(XFile? xfile)? imageLoaded,
+    TResult Function()? imageUploading,
+    TResult Function(String? urlImage)? imageUploaded,
+    TResult Function()? profileCreated,
+    TResult Function(String? message)? error,
+    required TResult orElse(),
+  }) {
+    if (imageUploaded != null) {
+      return imageUploaded(urlImage);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_initial value) initial,
+    required TResult Function(ImageLoading value) imageLoading,
+    required TResult Function(ImageLoaded value) imageLoaded,
+    required TResult Function(ImageUpload value) imageUploading,
+    required TResult Function(ImageUploaded value) imageUploaded,
+    required TResult Function(ProfileCreated value) profileCreated,
+    required TResult Function(Error value) error,
+  }) {
+    return imageUploaded(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_initial value)? initial,
+    TResult? Function(ImageLoading value)? imageLoading,
+    TResult? Function(ImageLoaded value)? imageLoaded,
+    TResult? Function(ImageUpload value)? imageUploading,
+    TResult? Function(ImageUploaded value)? imageUploaded,
+    TResult? Function(ProfileCreated value)? profileCreated,
+    TResult? Function(Error value)? error,
+  }) {
+    return imageUploaded?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_initial value)? initial,
+    TResult Function(ImageLoading value)? imageLoading,
+    TResult Function(ImageLoaded value)? imageLoaded,
+    TResult Function(ImageUpload value)? imageUploading,
+    TResult Function(ImageUploaded value)? imageUploaded,
+    TResult Function(ProfileCreated value)? profileCreated,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
+  }) {
+    if (imageUploaded != null) {
+      return imageUploaded(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ImageUploaded extends ProfileState {
+  const factory ImageUploaded({final String? urlImage}) = _$ImageUploaded;
+  const ImageUploaded._() : super._();
 
   String? get urlImage;
   @JsonKey(ignore: true)
-  _$$ImageUploadCopyWith<_$ImageUpload> get copyWith =>
+  _$$ImageUploadedCopyWith<_$ImageUploaded> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -709,7 +872,8 @@ class _$ProfileCreated extends ProfileCreated {
     required TResult Function() initial,
     required TResult Function() imageLoading,
     required TResult Function(XFile? xfile) imageLoaded,
-    required TResult Function(String? urlImage) imageUpload,
+    required TResult Function() imageUploading,
+    required TResult Function(String? urlImage) imageUploaded,
     required TResult Function() profileCreated,
     required TResult Function(String? message) error,
   }) {
@@ -722,7 +886,8 @@ class _$ProfileCreated extends ProfileCreated {
     TResult? Function()? initial,
     TResult? Function()? imageLoading,
     TResult? Function(XFile? xfile)? imageLoaded,
-    TResult? Function(String? urlImage)? imageUpload,
+    TResult? Function()? imageUploading,
+    TResult? Function(String? urlImage)? imageUploaded,
     TResult? Function()? profileCreated,
     TResult? Function(String? message)? error,
   }) {
@@ -735,7 +900,8 @@ class _$ProfileCreated extends ProfileCreated {
     TResult Function()? initial,
     TResult Function()? imageLoading,
     TResult Function(XFile? xfile)? imageLoaded,
-    TResult Function(String? urlImage)? imageUpload,
+    TResult Function()? imageUploading,
+    TResult Function(String? urlImage)? imageUploaded,
     TResult Function()? profileCreated,
     TResult Function(String? message)? error,
     required TResult orElse(),
@@ -752,7 +918,8 @@ class _$ProfileCreated extends ProfileCreated {
     required TResult Function(_initial value) initial,
     required TResult Function(ImageLoading value) imageLoading,
     required TResult Function(ImageLoaded value) imageLoaded,
-    required TResult Function(ImageUpload value) imageUpload,
+    required TResult Function(ImageUpload value) imageUploading,
+    required TResult Function(ImageUploaded value) imageUploaded,
     required TResult Function(ProfileCreated value) profileCreated,
     required TResult Function(Error value) error,
   }) {
@@ -765,7 +932,8 @@ class _$ProfileCreated extends ProfileCreated {
     TResult? Function(_initial value)? initial,
     TResult? Function(ImageLoading value)? imageLoading,
     TResult? Function(ImageLoaded value)? imageLoaded,
-    TResult? Function(ImageUpload value)? imageUpload,
+    TResult? Function(ImageUpload value)? imageUploading,
+    TResult? Function(ImageUploaded value)? imageUploaded,
     TResult? Function(ProfileCreated value)? profileCreated,
     TResult? Function(Error value)? error,
   }) {
@@ -778,7 +946,8 @@ class _$ProfileCreated extends ProfileCreated {
     TResult Function(_initial value)? initial,
     TResult Function(ImageLoading value)? imageLoading,
     TResult Function(ImageLoaded value)? imageLoaded,
-    TResult Function(ImageUpload value)? imageUpload,
+    TResult Function(ImageUpload value)? imageUploading,
+    TResult Function(ImageUploaded value)? imageUploaded,
     TResult Function(ProfileCreated value)? profileCreated,
     TResult Function(Error value)? error,
     required TResult orElse(),
@@ -860,7 +1029,8 @@ class _$Error extends Error {
     required TResult Function() initial,
     required TResult Function() imageLoading,
     required TResult Function(XFile? xfile) imageLoaded,
-    required TResult Function(String? urlImage) imageUpload,
+    required TResult Function() imageUploading,
+    required TResult Function(String? urlImage) imageUploaded,
     required TResult Function() profileCreated,
     required TResult Function(String? message) error,
   }) {
@@ -873,7 +1043,8 @@ class _$Error extends Error {
     TResult? Function()? initial,
     TResult? Function()? imageLoading,
     TResult? Function(XFile? xfile)? imageLoaded,
-    TResult? Function(String? urlImage)? imageUpload,
+    TResult? Function()? imageUploading,
+    TResult? Function(String? urlImage)? imageUploaded,
     TResult? Function()? profileCreated,
     TResult? Function(String? message)? error,
   }) {
@@ -886,7 +1057,8 @@ class _$Error extends Error {
     TResult Function()? initial,
     TResult Function()? imageLoading,
     TResult Function(XFile? xfile)? imageLoaded,
-    TResult Function(String? urlImage)? imageUpload,
+    TResult Function()? imageUploading,
+    TResult Function(String? urlImage)? imageUploaded,
     TResult Function()? profileCreated,
     TResult Function(String? message)? error,
     required TResult orElse(),
@@ -903,7 +1075,8 @@ class _$Error extends Error {
     required TResult Function(_initial value) initial,
     required TResult Function(ImageLoading value) imageLoading,
     required TResult Function(ImageLoaded value) imageLoaded,
-    required TResult Function(ImageUpload value) imageUpload,
+    required TResult Function(ImageUpload value) imageUploading,
+    required TResult Function(ImageUploaded value) imageUploaded,
     required TResult Function(ProfileCreated value) profileCreated,
     required TResult Function(Error value) error,
   }) {
@@ -916,7 +1089,8 @@ class _$Error extends Error {
     TResult? Function(_initial value)? initial,
     TResult? Function(ImageLoading value)? imageLoading,
     TResult? Function(ImageLoaded value)? imageLoaded,
-    TResult? Function(ImageUpload value)? imageUpload,
+    TResult? Function(ImageUpload value)? imageUploading,
+    TResult? Function(ImageUploaded value)? imageUploaded,
     TResult? Function(ProfileCreated value)? profileCreated,
     TResult? Function(Error value)? error,
   }) {
@@ -929,7 +1103,8 @@ class _$Error extends Error {
     TResult Function(_initial value)? initial,
     TResult Function(ImageLoading value)? imageLoading,
     TResult Function(ImageLoaded value)? imageLoaded,
-    TResult Function(ImageUpload value)? imageUpload,
+    TResult Function(ImageUpload value)? imageUploading,
+    TResult Function(ImageUploaded value)? imageUploaded,
     TResult Function(ProfileCreated value)? profileCreated,
     TResult Function(Error value)? error,
     required TResult orElse(),

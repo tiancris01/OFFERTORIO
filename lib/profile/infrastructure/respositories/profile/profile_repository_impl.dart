@@ -1,6 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:dartz/dartz.dart';
-import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
 import 'package:offertorio/profile/core/failures/profile_failures.dart';
@@ -16,9 +15,8 @@ class ProfileRepositoryImpl implements ProfileRepository {
   }) : _profileDataSource = profileDataSource;
 
   @override
-  Future<Either<ProfileFailure, Unit?>> createProfileFRDB(
-      UserDTO user, String uid) async {
-    return await _profileDataSource.createProfileFRDB(user, uid);
+  Future<Either<ProfileFailure, Unit?>> createProfileFRDB(UserDTO user) async {
+    return await _profileDataSource.createProfileFRDB(user);
   }
 
   @override
@@ -28,7 +26,7 @@ class ProfileRepositoryImpl implements ProfileRepository {
 
   @override
   Future<Either<ProfileFailure, String?>> uploadFileToFS(
-      BuildContext context, String uid, XFile? xfile) async {
-    return await _profileDataSource.uploadFileToFS(context, uid, xfile);
+      String uid, XFile? xfile) async {
+    return await _profileDataSource.uploadFileToFS(uid, xfile);
   }
 }

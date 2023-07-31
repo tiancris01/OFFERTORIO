@@ -3,12 +3,10 @@ import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_storage/firebase_storage.dart';
-import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:offertorio/profile/core/failures/profile_failures.dart';
 import 'package:offertorio/profile/domain/usecases/profile/profile_usecase.dart';
 import 'package:offertorio/profile/infrastructure/models/user_dto/user_dto.dart';
-import 'package:path_provider/path_provider.dart' as path_provider;
 
 class ProfileServices implements ProfileUseCase {
   final ImagePicker _imagePicker;
@@ -41,18 +39,13 @@ class ProfileServices implements ProfileUseCase {
 
   @override
   Future<Either<ProfileFailure, String?>> uploadFileToFS(
-      BuildContext context, String uid, XFile? xfile) async {
+      String uid, XFile? xfile) async {
     try {
-      Directory tempPath = await path_provider.getTemporaryDirectory();
-      String filePath =
-          "${tempPath.absolute}/usersPic/$uid-${xfile!.name.split('.').last}";
-
       final Reference storageRef = _firebaseStorage.ref();
-      await storageRef
-          .child('usersPic/$uid-${xfile.name.split('.').last}')
-          .putFile(File(filePath));
-      final String urlImage = await storageRef.getDownloadURL();
-
+      final uploadTask = await storageRef
+          .child('usersPic/${DateTime.now().millisecondsSinceEpoch}_images.jpg')
+          .putFile(File(xfile!.path));
+      final urlImage = await uploadTask.ref.getDownloadURL();
       return right(urlImage);
     } on FirebaseException catch (e) {
       return left(
@@ -64,10 +57,12 @@ class ProfileServices implements ProfileUseCase {
   }
 
   @override
-  Future<Either<ProfileFailure, Unit?>> createProfileFRDB(
-      UserDTO user, String uid) async {
+  Future<Either<ProfileFailure, Unit?>> createProfileFRDB(UserDTO user) async {
     try {
-      await _firebaseFirestore.collection('users').doc(uid).set(user.toJson());
+      await _firebaseFirestore
+          .collection('users')
+          .doc(user.uid)
+          .set(user.toJson());
       return right(unit);
     } on FirebaseException catch (e) {
       return left(

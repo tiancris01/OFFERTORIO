@@ -18,6 +18,14 @@ class AppTheme {
         buttonTheme: const ButtonThemeData(
           splashColor: Colors.transparent,
         ),
+        //SnackBar style
+        snackBarTheme: const SnackBarThemeData(
+          backgroundColor: AppColors.link,
+          contentTextStyle: TextStyle(
+            color: AppColors.withe,
+            fontSize: 16,
+          ),
+        ),
 
         // ElevatedButton style
         elevatedButtonTheme: ElevatedButtonThemeData(
