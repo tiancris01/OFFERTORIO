@@ -69,4 +69,15 @@ class ProfileNotifier extends StateNotifier<ProfileState> {
       (_) => state = const ProfileState.profileCreated(),
     );
   }
+
+  Future<bool> dataBaseUserExist(String uid) async {
+    final result = await _profileRepository.dataBaseUserExist(uid);
+    return result.fold(
+      (failure) {
+        state = ProfileState.error(message: failure.message);
+        return false;
+      },
+      (isExist) => isExist,
+    );
+  }
 }

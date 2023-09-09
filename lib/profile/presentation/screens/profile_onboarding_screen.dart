@@ -11,7 +11,6 @@ import 'package:reactive_forms/reactive_forms.dart';
 import 'package:offertorio/app_core/utils/snackbar/show_snackbar.dart';
 import 'package:offertorio/app_core/utils/widgets/shared_widgets.dart';
 import 'package:offertorio/auth/providers/auth_providers.dart';
-import 'package:offertorio/profile/application/profile/firebase_storage_notifier_provider/firebase_storage_state/firebase_storage_state.dart';
 import 'package:offertorio/profile/application/profile_providers.dart';
 import 'package:offertorio/profile/presentation/providers/profile_notifier_provider.dart';
 import 'package:offertorio/profile/presentation/providers/state/profile_state.dart';
@@ -77,9 +76,7 @@ class _ProfileOnBoardingScreenBuilderState
         showSnackbar(context, next.message ?? '');
       }
     });
-    final imageState = ref.watch(imagePickerNotifierProvider);
     ThemeData theme = Theme.of(context);
-
     return SafeArea(
       child: Scaffold(
         body: Padding(
@@ -110,8 +107,6 @@ class _ProfileOnBoardingScreenBuilderState
                         onTap: () {
                           ref
                               .read(profileNotifierProvider.notifier)
-                              // .read(imagePickerNotifierProvider.notifier)
-                              // .pickImageFromGallery(context);
                               .pickImage(source: ImageSource.gallery);
                         },
                         child: imageState2.maybeWhen(
@@ -134,8 +129,6 @@ class _ProfileOnBoardingScreenBuilderState
                             ref
                                 .read(profileNotifierProvider.notifier)
                                 .pickImage(source: ImageSource.camera);
-                            // .read(imagePickerNotifierProvider.notifier)
-                            // .pickImageFromCamera(context);
                           },
                         ),
                       ),

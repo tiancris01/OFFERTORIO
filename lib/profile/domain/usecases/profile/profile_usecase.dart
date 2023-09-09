@@ -8,4 +8,5 @@ abstract class ProfileUseCase {
   Future<Either<ProfileFailure, String?>> uploadFileToFS(
       String uid, XFile? xfile);
   Future<Either<ProfileFailure, Unit?>> createProfileFRDB(UserDTO user);
+  Future<Either<ProfileFailure, bool>> dataBaseUserExist(String uid);
 }

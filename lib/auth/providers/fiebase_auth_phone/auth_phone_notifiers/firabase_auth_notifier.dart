@@ -7,10 +7,10 @@ import 'package:offertorio/auth/providers/auth_providers.dart';
 import 'package:offertorio/shared/domain/credentials_storage/repositories/credential_storage_repository.dart';
 
 class FirebasePhoneAuthNotifier extends StateNotifier<AuthState> {
-  FirebasePhoneAuthNotifier(
-      {required FirebaseAuth firebasePhoneAuth,
-      required CredentialStorageRepository storageUse})
-      : _firebasePhoneAuth = firebasePhoneAuth,
+  FirebasePhoneAuthNotifier({
+    required FirebaseAuth firebasePhoneAuth,
+    required CredentialStorageRepository storageUse,
+  })  : _firebasePhoneAuth = firebasePhoneAuth,
         // _storageUse = storageUse,
         super(const AuthState.initializing()) {
     _loadCountries();

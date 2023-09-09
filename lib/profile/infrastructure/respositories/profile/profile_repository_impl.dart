@@ -29,4 +29,9 @@ class ProfileRepositoryImpl implements ProfileRepository {
       String uid, XFile? xfile) async {
     return await _profileDataSource.uploadFileToFS(uid, xfile);
   }
+
+  @override
+  Future<Either<ProfileFailure, bool>> dataBaseUserExist(String uid) async {
+    return await _profileDataSource.dataBaseUserExist(uid);
+  }
 }

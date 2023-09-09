@@ -72,12 +72,23 @@ class ProfileServices implements ProfileUseCase {
       );
     }
   }
+
+  @override
+  Future<Either<ProfileFailure, bool>> dataBaseUserExist(String uid) async {
+    final db = _firebaseFirestore;
+    try {
+      final user = await db.collection("users").doc(uid).get();
+      if (user.exists) {
+        return right(true);
+      } else {
+        return right(false);
+      }
+    } on FirebaseException catch (e) {
+      return left(
+        ProfileFailure.server(
+          message: "Faild with error ${e.code} : ${e.message}",
+        ),
+      );
+    }
+  }
 }
-
-
-/* 
-initial 
-ready
-uploading
-creatingProfile 
-*/
