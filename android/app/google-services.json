@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "417924602995",
+    "project_id": "offertorio-b7dd5",
+    "storage_bucket": "offertorio-b7dd5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:417924602995:android:c21cb1cc68d868e3f51e06",
+        "android_client_info": {
+          "package_name": "com.example.offertorio"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "417924602995-pqg1jl9fjukb4ham9ggmaha044h7103i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.offertorio",
+            "certificate_hash": "d058cdcdb73b2351ac30da54da1be5b0a944f414"
+          }
+        },
+        {
+          "client_id": "417924602995-9eu18a0je3jni34m7bqn1d02hgt33lha.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAyXqV03h1a978JWRM2OCWBeaH5dk-BLKQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "417924602995-9eu18a0je3jni34m7bqn1d02hgt33lha.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "417924602995-qb52iklnvnhi9h5b35o4aieeo4fqb12a.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.offertorio"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
