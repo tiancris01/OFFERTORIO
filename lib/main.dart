@@ -4,7 +4,7 @@ import 'package:offertorio/app_core/config/firebase/firabese_config.dart';
 import 'package:offertorio/app_widget.dart';
 
 Future<void> main() async {
-  await firabaseConfig();
+  await firebaseConfig();
   runApp(
     const ProviderScope(
       child: AppWidget(),
